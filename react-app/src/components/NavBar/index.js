@@ -48,7 +48,7 @@ import LogoutButton from '../auth/LogoutButton';
 // import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 // import CalendarTodayRoundedIcon from '@material-ui/icons/CalendarTodayRounded';
 import DemoUser from '../DemoUser'
-// import LoginFormModal from '../auth/LoginForm';
+import LoginFormModal from '../auth/LoginForm/LoginFormModal';
 // import SignUpFormModal from '../auth/SignUpForm';
 // import logo from './logo.png'
 
@@ -79,7 +79,7 @@ const NavBar = ({ loaded }) => {
 		sessionLinks = (
 			<>
 				<div className='navbar-button-container'>
-					{/* <LoginFormModal /> */}
+					<LoginFormModal />
 				</div>
 				<div className='navbar-button-container'>
 					{/* <SignUpFormModal /> */}
