@@ -2,7 +2,7 @@ from .db import db
 import datetime
 
 
-class User(db.Model):
+class Video(db.Model):
     __tablename__ = 'videos'
 
     id = db.Column(db.Integer, nullable=False, primary_key=True)
