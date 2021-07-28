@@ -21,8 +21,8 @@ const LoginForm = () => {
   };
 
   const demoLogin = () => {
-      setEmail('demo-user@demodata.com');
-      setPassword('table42User!');
+      setEmail('demo@aa.io');
+      setPassword('password');
       return dispatch(sessionActions.login(email, password))
   }
 
