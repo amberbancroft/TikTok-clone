@@ -31,5 +31,5 @@ ul{
     display: flex;
     justify-content: space-between;
     border-bottom: rgb(247, 247, 247) solid .5px;
-    background-color: white;
+    background-color: pink;
 }

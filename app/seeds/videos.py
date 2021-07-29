@@ -11,32 +11,32 @@ def seed_videos():
         description='c', poster_Id=1)
 
     three = Video(
-    video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c3lidejc77u5ac6mdp5g.mp4', 
-    description='u', poster_Id=1)
+        video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c3lidejc77u5ac6mdp5g.mp4', 
+        description='u', poster_Id=1)
 
     four = Video(
-    video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c3mdja3c77u6gobfp8q0.mp4', 
-    description='o', poster_Id=2)
+        video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c3mdja3c77u6gobfp8q0.mp4', 
+        description='o', poster_Id=2)
 
     five = Video(
-    video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c3r201rc77u8jjssmqlg.mp4', 
-    description='l', poster_Id=2)
+        video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c3r201rc77u8jjssmqlg.mp4', 
+        description='l', poster_Id=2)
 
     six = Video(
-    video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c3rce93c77udnf6i6cu0.mp4', 
-    description='m', poster_Id=3)
+        video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c3rce93c77udnf6i6cu0.mp4', 
+        description='m', poster_Id=3)
 
     seven = Video(
-    video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c3rhomjc77u5jq1nq030.mp4', 
-    description='a', poster_Id=3)
+        video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c3rhomjc77u5jq1nq030.mp4', 
+        description='a', poster_Id=3)
 
     eight = Video(
-    video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c40b5tjc77u8b91ldne0.mp4', 
-    description='e', poster_Id=3)
+        video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c40b5tjc77u8b91ldne0.mp4', 
+        description='e', poster_Id=3)
 
     nine = Video(
-    video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c40cpi3c77u66iuughag.mp4', 
-    description='i', poster_Id=3)
+        video_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/v09044g40000c40cpi3c77u66iuughag.mp4', 
+        description='i', poster_Id=3)
 
 
 
