@@ -21,7 +21,7 @@ function HomePage() {
 
     return (
         <>
-        <div>Poooooop</div>
+        <div></div>
         </>
     )
 }

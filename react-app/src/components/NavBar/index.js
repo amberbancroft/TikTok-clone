@@ -8,23 +8,40 @@ import LogoutButton from '../auth/LogoutButton';
 import DemoUser from '../DemoUser'
 import LoginFormModal from '../auth/LoginForm/LoginFormModal';
 import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal';
+import logo from './images/logo.png'
+import upload from './images/upload.png'
+import message from './images/message.png'
+import inbox from './images/inbox.png'
 import "./NavBar.css"
 
 
 const NavBar = ({ loaded }) => {
 	const user = useSelector(state => state.session.user);
+	console.log('!!!!!!!!!!!!!!', user.profile_url)
 
 	let sessionLinks;
 	if (user) {
 		sessionLinks = (
 			<>
 				<div className='navbar-button'>
-					<NavLink to={`/users/${user.id}`} exact={true} activeClassName='active' className='navbar-button'>
-						{/* <AccountCircleIcon></AccountCircleIcon> */}
+					<NavLink to={`/`} exact={true} >
+						<img src={upload} className="navbar-icon" alt="homepageUpload"></img>
 					</NavLink>
 				</div>
 				<div className='navbar-button'>
-					{/* <CalendarTodayRoundedIcon /> */}
+					<NavLink to={`/`} exact={true} >
+						<img src={message} className="navbar-icon" alt="homepageMessage"></img>
+					</NavLink>
+				</div>
+				<div className='navbar-button'>
+					<NavLink to={`/`} exact={true} >
+						<img src={inbox} className="navbar-icon" alt="homepageInbox"></img>
+					</NavLink>
+				</div>
+				<div className='navbar-button'>
+					<NavLink to={`/users/${user.id}`} exact={true} >
+						<img src={user.profile_url} id='profile-icon' alt="homepageInbox"></img>
+					</NavLink>
 				</div>
 				<div className='logout'>
 					<LogoutButton />
@@ -50,7 +67,7 @@ const NavBar = ({ loaded }) => {
 	return (
 		<div className='navbar__container'>
 			<NavLink className='navbar__logo' exact to="/">
-				<h3>TikTok</h3>
+				<img src={logo} className="navbar-icon" alt="homepageLogo"></img>
 			</NavLink>
 			<div className='session-container' >
 				{loaded && sessionLinks}
