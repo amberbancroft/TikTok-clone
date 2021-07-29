@@ -14,7 +14,7 @@ const DemoUser = () => {
 	const onLogin = async (e) => {
 		e.preventDefault();
 
-		const data = await dispatch(login('demo-user@demodata.com', 'table42User!'));
+		const data = await dispatch(login('demo@aa.io', 'password'));
 		if (data) setErrors(data);
 	};
 
