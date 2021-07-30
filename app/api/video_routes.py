@@ -1,6 +1,7 @@
-from flask import Blueprint
-from flask_login import login_required
-from app.models import User, Video
+from flask import Blueprint, request, jsonify
+# from flask_login import login_required
+from app.models import User, Video, db
+from app.awsS3 import (upload_file_to_s3, allowed_file, get_unique_filename)
 
 video_routes = Blueprint('videos', __name__)
 
@@ -12,19 +13,37 @@ def video():
     return { 'all_videos': [video.to_dict() for video in all_videos] }
 
 # Post
-# @review_routes.route('/venues/<int:id>', methods=['POST'])
-# def new_review(id):
-#     request_json = request.get_json()
-#     review = Review(
-#         user_id=request_json["user_id"],
-#         venue_id=request_json["venue_id"],
-#         title=request_json["title"],
-#         body=request_json['body'],
-#         rating=request_json['rating']
-#     )
-#     db.session.add(review)
-#     db.session.commit()
-#     return {'review': review.to_dict()}
+@video_routes.route('/new', methods=['POST'])
+def new_video():
+
+    # Error Handling
+    if 'video' not in request.files:
+        return {'errors': ['video required']}, 400
+
+    video = request.files['video']
+
+    if not allowed_file(video.filename):
+        return {'errors': ['filetype not permitted']}, 400
+
+    video.filename = get_unique_filename(video.filename)
+    upload = upload_file_to_s3(video)
+    if 'url' not in upload:
+        return {'errors': [upload]}, 400
+
+    # Grabbing from the form on the front end
+    poster_Id = request.form['poster_Id']
+    description = request.form['description']
+    url = upload['url']
+    # print('**********************', url, poster_Id, description)
+    video = Video(
+        poster_Id=poster_Id,
+        description=description,
+        video_url=url,
+    )
+    # print('**********************', video)
+    db.session.add(video)
+    db.session.commit()
+    return {video.id: video.to_dict()}
 
 # @review_routes.route('/<int:id>', methods=['PUT'])
 # def review_edit(id):

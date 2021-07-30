@@ -6,14 +6,12 @@ import LogoutButton from '../auth/LogoutButton';
 import DemoUser from '../DemoUser'
 import LoginFormModal from '../auth/LoginForm/LoginFormModal';
 import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal';
+import UploadFormModal from '../Upload/UploadModal';
 import logo from './images/logo.png'
 import upload from './images/upload.png'
-import message from './images/message.png'
-import inbox from './images/inbox.png'
-// import bootstrap from ''
-
+// import message from './images/message.png'
+// import inbox from './images/inbox.png'
 import "./NavBar.css"
-
 
 const NavBar = ({ loaded }) => {
 	const user = useSelector(state => state.session.user);
@@ -31,6 +29,9 @@ const NavBar = ({ loaded }) => {
 					<NavLink to={`/`} exact={true} >
 						<img data-bs-toggle="tooltip" data-bs-placement="bottom" title="upload" src={upload} className="navbar-icon" alt="homepageUpload"></img>
 					</NavLink>
+				</div>
+				<div className='navbar-button-container'>
+					<UploadFormModal />
 				</div>
 				{/* <div className='navbar-button'>
 					<NavLink to={`/`} exact={true} >
