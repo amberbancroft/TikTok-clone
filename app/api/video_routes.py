@@ -13,15 +13,19 @@ def video():
     return { 'all_videos': [video.to_dict() for video in all_videos] }
 
 # Post
-@video_routes.route('/<int:id>', methods=['POST'])
-def new_video(id):
+@video_routes.route('/new', methods=['POST'])
+def new_video():
     request_json = request.get_json()
+    video_url = request.files['video_url']
+    description = request.form['description']
+    poster_Id = request.form['poster_id']
+    print('&&&&&&&&&&&&&&&&&&&&',video_url,description,poster_Id)
     video = Video(
-        video_Id=request_json["id"],
-        video_url=request_json["video_url"],
-        description=request_json["description"],
-        poster_Id=request_json["poster_Id"],
+        video_url=video_url,
+        description=description,
+        poster_Id=poster_Id
     )
+    print('##########################', video)
     db.session.add(video)
     db.session.commit()
     return {'video': video.to_dict()}

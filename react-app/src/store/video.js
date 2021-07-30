@@ -38,35 +38,21 @@ export const getVideos = () => async (dispatch) => {
     }
 }
 
-export const createVideo = video => async (dispatch) => {
-    // const response = await fetch(`/api/venues/reviews/${review.venue_id}`, {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(review)
-    // })
-    // if (response.ok) {
-    //     const data = await response.json()
-    //     console.log("!!!!!!!!!!!!", data)
-    //     dispatch(addReview(data))
-    //     console.log("++++++++++", data)
-    // }
+export const createVideo = (video_url, description, poster_Id) => async (dispatch) => {
 
-    const response = await fetch(`/api/videos/${video.video_Id}`, {
+    const response = await fetch(`/api/videos/new`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(video)
+        body: JSON.stringify(video_url, description, poster_Id)
     })
     if (response.ok) {
         const newVideo = await response.json()
         dispatch(addVideo(newVideo))
         console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!', newVideo)
     }
-    // console.log('from store in reviews', review)
-    // return review
+    console.log('getting to the thunk')
 }
 
 // Reducer
