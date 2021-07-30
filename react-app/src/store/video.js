@@ -38,27 +38,37 @@ export const getVideos = () => async (dispatch) => {
     }
 }
 
-export const createVideo = (video_url, description, poster_Id) => async (dispatch) => {
+export const createVideo = (poster_Id, description, video_url) => async (dispatch) => {
+
+    const formdata = new FormData()
+
+    formdata.append('poster_Id', poster_Id)
+    formdata.append('description', JSON.stringify(description))
+    if (video_url){
+        formdata.append('video', video_url)
+    }
 
     const response = await fetch(`/api/videos/new`, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "enctype": "multipart/form-data"
         },
-        body: JSON.stringify(video_url, description, poster_Id)
+        body: formdata
     })
-    if (response.ok) {
-        const newVideo = await response.json()
-        dispatch(addVideo(newVideo))
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!', newVideo)
+
+    const data = await response.json()
+    // console.log('getting to the thunk', video_url, description, poster_Id, data)
+    if (data.errors){
+        return data
     }
-    console.log('getting to the thunk')
+    dispatch(addVideo(data))
+    // console.log('thunk after dispatch', video_url, description, poster_Id, data)
 }
 
 // Reducer
 const initialState = {}
 
-export default function reviews(state = initialState, action) {
+export default function videos(state = initialState, action) {
     let updatedState = {...state}
     switch (action.type) {
         case GET_VIDEOS:{
@@ -68,9 +78,10 @@ export default function reviews(state = initialState, action) {
             })
             return newState
         }  
-        case ADD_VIDEO:
+        case ADD_VIDEO: {
             updatedState[action.video.id] = action.video
             return updatedState
+        }
         // case UPDATE_VIDEO: {
         //     updatedState[action.video.id] = action.video
         //     return updatedState

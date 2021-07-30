@@ -1,8 +1,8 @@
-"""Initial migration.
+"""tables
 
-Revision ID: 404c9869bf85
+Revision ID: 2e719abb0d00
 Revises: 
-Create Date: 2021-07-29 14:07:10.124170
+Create Date: 2021-07-30 14:51:19.195839
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '404c9869bf85'
+revision = '2e719abb0d00'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -31,9 +31,9 @@ def upgrade():
     )
     op.create_table('videos',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('video_url', sa.String(), nullable=False),
-    sa.Column('description', sa.String(length=40), nullable=True),
     sa.Column('poster_Id', sa.Integer(), nullable=False),
+    sa.Column('description', sa.String(length=40), nullable=True),
+    sa.Column('video_url', sa.String(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['poster_Id'], ['users.id'], ),
