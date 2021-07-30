@@ -36,6 +36,25 @@ ul{
 
 .navbar-icon{
     padding-top: 5px;
-    height:52px;
+    height:52px;  
+}
+
+/* .navbar-icon:hover{
+    background-color:rgb(97, 97, 97);
+} */
+
+#homepage_icon{
     padding-left: 12px;
+}
+
+#profile-icon{
+    margin: 13px;
+    height: 30px;
+    width: 30px;
+    border-radius:50%;
+    padding-bottom: 0px;
+}
+
+#logout_icon{
+    height: 45px;
 }

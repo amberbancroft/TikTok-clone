@@ -7,8 +7,7 @@ import "./HomePage.css";
 // {setResults}
 function HomePage() {
     // Data being pulled from store
-    const videos = useSelector(state => state.videos)
-
+    const videos = useSelector(state => state.video)
 
     // Variables
     const dispatch = useDispatch()
@@ -16,12 +15,14 @@ function HomePage() {
 
     useEffect(() => {
         dispatch(getVideos())
-        console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%', videos)
+        // {console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%', videos)}
     }, [dispatch])
 
     return (
         <>
-        <div></div>
+            <div>
+                {/* <button onClick={() => {console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%', videos)}}>poop</button> */}
+            </div>
         </>
     )
 }

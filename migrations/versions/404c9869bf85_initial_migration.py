@@ -1,8 +1,8 @@
-"""create video table
+"""Initial migration.
 
-Revision ID: 86b87d0b449e
+Revision ID: 404c9869bf85
 Revises: 
-Create Date: 2021-07-27 15:29:31.334297
+Create Date: 2021-07-29 14:07:10.124170
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '86b87d0b449e'
+revision = '404c9869bf85'
 down_revision = None
 branch_labels = None
 depends_on = None

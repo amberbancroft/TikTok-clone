@@ -7,7 +7,7 @@ const GET_VIDEOS = "videos/GET_VIDEOS"
 // Action
 const loadVideos = (videos) => ({
     type: GET_VIDEOS,
-    payload: videos
+    videos
 })
 
 // const addVideos = (video) => ({
@@ -33,7 +33,7 @@ export const getVideos = () => async (dispatch) => {
 
     if (response.ok) {
         const videos = await response.json()
-        console.log('************************************', videos)
+        // console.log('************************************', videos)
         dispatch(loadVideos(videos))
     }
 }
@@ -46,11 +46,11 @@ export default function reviews(state = initialState, action) {
     switch (action.type) {
         case GET_VIDEOS:{
             const newState = {}
-            // action.videos.forEach(video => {
-            //     newState[video.id] = video
-            // })
+            action.videos.all_videos.forEach(video => {
+                // console.log('*************************************', videos)
+                newState[video.id] = video
+            })
             // const dict = action.videos
-            // console.log('*************************************', dict)
             // let i = 0
             
             // while (i < dict.length()) {

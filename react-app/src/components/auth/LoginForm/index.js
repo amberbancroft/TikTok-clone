@@ -31,7 +31,7 @@ const LoginForm = () => {
     <ul className="form-errors">
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
     </ul>
-    <h2>Please Sign in </h2>
+    <h2>Log in to TikTok</h2>
     <hr />
     <div className="login--element--container">
         <input
@@ -54,8 +54,8 @@ const LoginForm = () => {
         />
     </div>
     <div className="login__button--container">
-        <button className="button2" type="submit">Log In</button>
-        <button className="button1" onClick={() => demoLogin()}>Demo User</button>
+        <button className="login_btn" type="submit">Log In</button>
+        <button className="login_btn" onClick={() => demoLogin()}>Demo User</button>
     </div>
 </form>
   );

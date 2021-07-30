@@ -3,8 +3,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
-// import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-// import CalendarTodayRoundedIcon from '@material-ui/icons/CalendarTodayRounded';
 import DemoUser from '../DemoUser'
 import LoginFormModal from '../auth/LoginForm/LoginFormModal';
 import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal';
@@ -12,12 +10,18 @@ import logo from './images/logo.png'
 import upload from './images/upload.png'
 import message from './images/message.png'
 import inbox from './images/inbox.png'
+// import bootstrap from ''
+
 import "./NavBar.css"
 
 
 const NavBar = ({ loaded }) => {
 	const user = useSelector(state => state.session.user);
-	console.log('!!!!!!!!!!!!!!', user.profile_url)
+	// console.log('!!!!!!!!!!!!!!', user.profile_url)
+	// var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	// var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  	// 	return new bootstrap.Tooltip(tooltipTriggerEl)
+	// })
 
 	let sessionLinks;
 	if (user) {
@@ -25,27 +29,28 @@ const NavBar = ({ loaded }) => {
 			<>
 				<div className='navbar-button'>
 					<NavLink to={`/`} exact={true} >
-						<img src={upload} className="navbar-icon" alt="homepageUpload"></img>
+						<img data-bs-toggle="tooltip" data-bs-placement="bottom" title="upload" src={upload} className="navbar-icon" alt="homepageUpload"></img>
 					</NavLink>
 				</div>
-				<div className='navbar-button'>
+				{/* <div className='navbar-button'>
 					<NavLink to={`/`} exact={true} >
-						<img src={message} className="navbar-icon" alt="homepageMessage"></img>
+						<img  src={message} className="navbar-icon" alt="homepageMessage"></img>
 					</NavLink>
 				</div>
 				<div className='navbar-button'>
 					<NavLink to={`/`} exact={true} >
 						<img src={inbox} className="navbar-icon" alt="homepageInbox"></img>
 					</NavLink>
-				</div>
+				</div> */}
 				<div className='navbar-button'>
 					<NavLink to={`/users/${user.id}`} exact={true} >
 						<img src={user.profile_url} id='profile-icon' alt="homepageInbox"></img>
+						{/* <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+  							bottom
+						</button> */}
 					</NavLink>
 				</div>
-				<div className='logout'>
-					<LogoutButton />
-				</div>
+				<LogoutButton />
 			</>
 		);
 	} else {
@@ -66,7 +71,7 @@ const NavBar = ({ loaded }) => {
 
 	return (
 		<div className='navbar__container'>
-			<NavLink className='navbar__logo' exact to="/">
+			<NavLink  id='homepage_icon' exact to="/">
 				<img src={logo} className="navbar-icon" alt="homepageLogo"></img>
 			</NavLink>
 			<div className='session-container' >
