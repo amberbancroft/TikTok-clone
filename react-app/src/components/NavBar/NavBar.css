@@ -30,6 +30,31 @@ ul{
 .navbar__container{
     display: flex;
     justify-content: space-between;
-    border-bottom: rgb(247, 247, 247) solid .5px;
-    background-color: pink;
+    border-bottom: rgb(214, 222, 222) solid 1px;
+    background-color: white;
+}
+
+.navbar-icon{
+    padding-top: 5px;
+    height:52px;  
+}
+
+/* .navbar-icon:hover{
+    background-color:rgb(97, 97, 97);
+} */
+
+#homepage_icon{
+    padding-left: 12px;
+}
+
+#profile-icon{
+    margin: 13px;
+    height: 30px;
+    width: 30px;
+    border-radius:50%;
+    padding-bottom: 0px;
+}
+
+#logout_icon{
+    height: 45px;
 }
