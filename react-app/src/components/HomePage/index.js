@@ -1,7 +1,8 @@
 // Imports
 import { getVideos } from '../../store/video'
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+// import { useEffect, useState } from "react";
 // import { Grid } from '@material-ui/grid';
 import "./HomePage.css";
 
@@ -28,11 +29,10 @@ function HomePage() {
             <FormRow />
         </Grid>
         </Grid> */}
-            {Object.values(videos)?.map(video => (
-                <div class='video-container'>
+            {Object.values(videos)?.map((video,i) => (
+                <div key={i}>
                     {/* {Object.values(videos)?.map(video => (
                         <div class='video-container'>
-                            
                             {/* <img src={video.profile_url}></img> */}
                             {/* <h2>{`${video.username}`}</h2> */}
                             {/* <a href={`/videos/${video.id}`}>

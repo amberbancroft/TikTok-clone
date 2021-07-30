@@ -1,6 +1,7 @@
-from flask import Blueprint
-from flask_login import login_required
-from app.models import User, Video
+from flask import Blueprint, request, jsonify
+# from flask_login import login_required
+from app.models import User, Video, db
+
 
 video_routes = Blueprint('videos', __name__)
 
@@ -12,19 +13,18 @@ def video():
     return { 'all_videos': [video.to_dict() for video in all_videos] }
 
 # Post
-# @review_routes.route('/venues/<int:id>', methods=['POST'])
-# def new_review(id):
-#     request_json = request.get_json()
-#     review = Review(
-#         user_id=request_json["user_id"],
-#         venue_id=request_json["venue_id"],
-#         title=request_json["title"],
-#         body=request_json['body'],
-#         rating=request_json['rating']
-#     )
-#     db.session.add(review)
-#     db.session.commit()
-#     return {'review': review.to_dict()}
+@video_routes.route('/<int:id>', methods=['POST'])
+def new_video(id):
+    request_json = request.get_json()
+    video = Video(
+        video_Id=request_json["id"],
+        video_url=request_json["video_url"],
+        description=request_json["description"],
+        poster_Id=request_json["poster_Id"],
+    )
+    db.session.add(video)
+    db.session.commit()
+    return {'video': video.to_dict()}
 
 # @review_routes.route('/<int:id>', methods=['PUT'])
 # def review_edit(id):

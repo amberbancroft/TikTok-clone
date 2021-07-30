@@ -2,6 +2,7 @@ from .db import db
 import datetime
 
 
+
 class Video(db.Model):
     __tablename__ = 'videos'
 

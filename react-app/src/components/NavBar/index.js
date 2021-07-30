@@ -10,7 +10,7 @@ import logo from './images/logo.png'
 import upload from './images/upload.png'
 // import message from './images/message.png'
 // import inbox from './images/inbox.png'
-// import bootstrap from ''
+
 
 import "./NavBar.css"
 
