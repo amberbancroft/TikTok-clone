@@ -14,7 +14,7 @@ video_routes = Blueprint('videos', __name__)
 #             errorMessages.append(f'{field} : {error}')
 #     return errorMessages
 
-# Routes Defined
+# Routes Defined:
 #Get
 @video_routes.route('/')
 def video():
@@ -54,13 +54,13 @@ def new_video():
     db.session.commit()
     return {video.id: video.to_dict()}
 
-
-#Get For delete and edit
+#Get for delete & edit
 @video_routes.route('/<int:id>')
 def single_video(id):
     single_video = Video.query.get(id)
     return { 'single_video': single_video.to_dict()}
-    
+
+# Edit   
 @video_routes.route('/<int:id>', methods=['PUT'])
 def video_edit(id):
     form = EditVideoForm()
@@ -73,6 +73,7 @@ def video_edit(id):
     # print("Unable to validate: ", form.errors)
     return {'errors': form.errors}
 
+# Delete
 @video_routes.route('/<int:id>', methods=['DELETE'])
 def delete_video_by_id(id):
     delete_video = Video.query.get(id)
