@@ -8,6 +8,7 @@ import HomePage from './components/HomePage/index';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import SingleVideoPage from './components/SingleVideoPage/index'
 import { authenticate } from './store/session';
 
 function App() {
@@ -33,12 +34,9 @@ function App() {
           <Route path='/' exact={true} >
             <HomePage/>
           </Route>
-          {/* <Route path='/login' exact={true}>
-            <LoginForm />
-          </Route> */}
-          {/* <Route path='/sign-up' exact={true}>
-            <SignUpForm />
-          </Route> */}
+          <Route path='/videos/:videoId' exact>
+            <SingleVideoPage/>
+          </Route>
           <ProtectedRoute path='/users' exact={true} >
             <UsersList/>
           </ProtectedRoute>

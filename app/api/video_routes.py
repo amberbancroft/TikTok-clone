@@ -1,9 +1,18 @@
 from flask import Blueprint, request, jsonify
 # from flask_login import login_required
+from app.forms import EditVideoForm
 from app.models import User, Video, db
 from app.awsS3 import (upload_file_to_s3, allowed_file, get_unique_filename)
 
 video_routes = Blueprint('videos', __name__)
+
+# Validators defined
+# def validation_error_messages(validation_errors):
+#     errorMessages = []
+#     for field in validation_errors:
+#         for error in validation_errors[field]:
+#             errorMessages.append(f'{field} : {error}')
+#     return errorMessages
 
 # Routes Defined
 #Get
@@ -45,29 +54,29 @@ def new_video():
     db.session.commit()
     return {video.id: video.to_dict()}
 
-# @review_routes.route('/<int:id>', methods=['PUT'])
-# def review_edit(id):
-#     form = ReviewForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if form.validate_on_submit():
-#         edit_review = Review.query.get(id)
-#         form.populate_obj(edit_review)
-#         db.session.commit()
-#         return edit_review.to_dict()
-#     print("Unable to validate: ", form.errors)
-#     return {'errors': form.errors}
 
+#Get For delete and edit
+@video_routes.route('/<int:id>')
+def single_video(id):
+    single_video = Video.query.get(id)
+    return { 'single_video': single_video.to_dict()}
+    
+@video_routes.route('/<int:id>', methods=['PUT'])
+def video_edit(id):
+    form = EditVideoForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        edit_video = Video.query.get(id)
+        form.populate_obj(edit_video)
+        db.session.commit()
+        return edit_video.to_dict()
+    # print("Unable to validate: ", form.errors)
+    return {'errors': form.errors}
 
-# @review_routes.route('/<int:id>', methods=['DELETE'])
-# def delete_review_by_id(id):
-#     delete_review = Review.query.get(id)
-#     db.session.delete(delete_review)
-#     db.session.commit()
-#     return {'delete_review': delete_review.to_dict()}
-
-# def validation_error_messages(validation_errors):
-#     errorMessages = []
-#     for field in validation_errors:
-#         for error in validation_errors[field]:
-#             errorMessages.append(f'{field} : {error}')
-#     return errorMessages
+@video_routes.route('/<int:id>', methods=['DELETE'])
+def delete_video_by_id(id):
+    delete_video = Video.query.get(id)
+    # print('**********************', delete_video)
+    db.session.delete(delete_video)
+    db.session.commit()
+    return {'delete_video': delete_video.to_dict()}

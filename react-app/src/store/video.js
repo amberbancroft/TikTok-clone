@@ -1,8 +1,9 @@
 // Type
 const GET_VIDEOS = "videos/GET_VIDEOS"
+const GET_SINGLE_VIDEO ="videos/GET_SINGLE_VIDEO"
 const ADD_VIDEO = "videos/ADD_VIDEO"
-// const UPDATE_VIDEO = "videos/UPDATE_VIDEO"
-// const DELETE_VIDEO = "videos/DELETE_VIDEO"
+const UPDATE_VIDEO = "videos/UPDATE_VIDEO"
+const DELETE_VIDEO = "videos/DELETE_VIDEO"
 
 // Action
 const loadVideos = (videos) => ({
@@ -10,21 +11,26 @@ const loadVideos = (videos) => ({
     videos
 })
 
+const loadSingleVideo= (video) => ({
+    type: GET_SINGLE_VIDEO,
+    video
+})
+
 const addVideo = (video) => ({
     type: ADD_VIDEO,
     video
 })
 
-// const updateSingleVideo = (video) => ({
-//         type: UPDATE_VIDEO,
-//         video
+const updateVideo = (video) => ({
+    type: UPDATE_VIDEO,
+    video
     
-// })
+})
 
-// const deleteSingleVideo = (video) => ({
-//     type: DELETE_VIDEO,
-//     video
-// })
+const deleteSingleVideo = (video) => ({
+    type: DELETE_VIDEO,
+    video
+})
 
 // thunk
 export const getVideos = () => async (dispatch) => {
@@ -37,6 +43,16 @@ export const getVideos = () => async (dispatch) => {
         dispatch(loadVideos(videos))
     }
 }
+
+export const getVideo = (videoId) => async dispatch => {
+    const response = await fetch(`/api/videos/${videoId}`);
+  
+    if (response.ok) {
+      const videoData = await response.json();
+    //   console.log("single video", videoData);
+      dispatch(loadSingleVideo(videoData));
+    }
+};
 
 export const createVideo = (poster_Id, description, video_url) => async (dispatch) => {
 
@@ -65,6 +81,34 @@ export const createVideo = (poster_Id, description, video_url) => async (dispatc
     // console.log('thunk after dispatch', video_url, description, poster_Id, data)
 }
 
+export const update_Video = (description) => async (dispatch) => {
+    const response = await fetch(`/api/videos/${description}`, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({description})
+    })
+    if (response.ok) {
+        const updatedVideo = await response.json()
+        dispatch(updateVideo(updatedVideo))
+        // console.log('THIS WILL PRINT ONLY IF THE RESPONSE IS OK', updatedReview)
+    }
+    // console.log('THIS WILL PRINT EVEN IF THE RESPONSE IS NOT OKAY, title, body, rating', title, body, rating)
+}
+
+export const deleteVideo = videoId => async (dispatch) => {
+    const response = await fetch(`/api/videos/${videoId}`, {
+        method: "DELETE"
+    })
+    if (response.ok) {
+        dispatch(deleteSingleVideo(videoId))
+        // console.log('deleted a review response.ok')
+    }
+    // console.log('THis is from the deleteReview in store', reviewId)
+}
+
+
 // Reducer
 const initialState = {}
 
@@ -78,18 +122,23 @@ export default function videos(state = initialState, action) {
             })
             return newState
         }  
+        case GET_SINGLE_VIDEO: {
+            const singleVideo = {...state};
+            singleVideo[action.video.id] = action.video;
+            return singleVideo
+        }
         case ADD_VIDEO: {
             updatedState[action.video.id] = action.video
             return updatedState
         }
-        // case UPDATE_VIDEO: {
-        //     updatedState[action.video.id] = action.video
-        //     return updatedState
-        // }
-        // case DELETE_VIDEO: {
-        //     delete updatedState[action.video]
-        //     return updatedState
-        // }
+        case UPDATE_VIDEO: {
+            updatedState[action.video.id] = action.video
+            return updatedState
+        }
+        case DELETE_VIDEO: {
+            delete updatedState[action.video]
+            return updatedState
+        }
         default:
             return state
     }
