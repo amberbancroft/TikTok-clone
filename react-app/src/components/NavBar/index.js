@@ -8,7 +8,7 @@ import LoginFormModal from '../auth/LoginForm/LoginFormModal';
 import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal';
 import UploadFormModal from '../Upload/UploadModal';
 import logo from './images/logo.png'
-import upload from './images/upload.png'
+
 // import message from './images/message.png'
 // import inbox from './images/inbox.png'
 import "./NavBar.css"
@@ -25,11 +25,6 @@ const NavBar = ({ loaded }) => {
 	if (user) {
 		sessionLinks = (
 			<>
-				<div className='navbar-button'>
-					<NavLink to={`/`} exact={true} >
-						<img data-bs-toggle="tooltip" data-bs-placement="bottom" title="upload" src={upload} className="navbar-icon" alt="homepageUpload"></img>
-					</NavLink>
-				</div>
 				<div className='navbar-button-container'>
 					<UploadFormModal />
 				</div>
@@ -43,6 +38,7 @@ const NavBar = ({ loaded }) => {
 						<img src={inbox} className="navbar-icon" alt="homepageInbox"></img>
 					</NavLink>
 				</div> */}
+				<LogoutButton />
 				<div className='navbar-button'>
 					<NavLink to={`/users/${user.id}`} exact={true} >
 						<img src={user.profile_url} id='profile-icon' alt="homepageInbox"></img>
@@ -51,19 +47,18 @@ const NavBar = ({ loaded }) => {
 						</button> */}
 					</NavLink>
 				</div>
-				<LogoutButton />
 			</>
 		);
 	} else {
 		sessionLinks = (
 			<>
-				<div className='navbar-button-container'>
-					<LoginFormModal />
-				</div>
-				<div className='navbar-button-container'>
+				<div >
 					<SignUpFormModal />
 				</div>
-				<div className='navbar-button-container'>
+				<div >
+					<LoginFormModal />
+				</div>
+				<div>
 					<DemoUser />
 				</div>
 			</>
