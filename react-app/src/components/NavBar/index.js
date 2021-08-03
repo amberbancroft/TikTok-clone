@@ -3,7 +3,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
-import DemoUser from '../DemoUser'
 import LoginFormModal from '../auth/LoginForm/LoginFormModal';
 import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal';
 import UploadFormModal from '../Upload/UploadModal';
@@ -51,12 +50,12 @@ const NavBar = ({ loaded }) => {
 				<div className="navbar-button">
 					<SignUpFormModal />
 				</div>
-				<div className="navbar-button">
+				<div className="navbar-button" id="login-button">
 					<LoginFormModal />
 				</div>
-				<div className="navbar-button">
+				{/* <div className="navbar-button">
 					<DemoUser />
-				</div>
+				</div> */}
 			</>
 		);
 	}

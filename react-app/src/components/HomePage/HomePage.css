@@ -1,3 +1,23 @@
-.foryou-container{
-    background-color: pink;
+.individual-container{
+    border-bottom: rgb(214, 222, 222) solid 1px;
+}
+.poster-info{
+    display:flex;
+    align-items:center;
+}
+/* #foryou-container{
+    padding: 600px, 0px, 100px, 0px;
+    background-color:pink
+} */
+#demo-button{
+    border: rgb(234, 72, 89) 1px solid;
+    /* background-color: rgb(234, 72, 89); */
+    color: rgb(234, 72, 89);
+    border-radius: 8%;
+    padding:0px 30%;
+    height: 45px;
+    margin-top: 7px;
+}
+video{
+    border-radius: 2%;
 }
