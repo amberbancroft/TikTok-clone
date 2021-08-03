@@ -3,11 +3,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
-import DemoUser from '../DemoUser'
 import LoginFormModal from '../auth/LoginForm/LoginFormModal';
 import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal';
 import UploadFormModal from '../Upload/UploadModal';
 import logo from './images/logo.png'
+import Grid from '@material-ui/core/Grid';
 
 // import message from './images/message.png'
 // import inbox from './images/inbox.png'
@@ -15,11 +15,6 @@ import "./NavBar.css"
 
 const NavBar = ({ loaded }) => {
 	const user = useSelector(state => state.session.user);
-	// console.log('!!!!!!!!!!!!!!', user.profile_url)
-	// var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-	// var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  	// 	return new bootstrap.Tooltip(tooltipTriggerEl)
-	// })
 
 	let sessionLinks;
 	if (user) {
@@ -28,18 +23,18 @@ const NavBar = ({ loaded }) => {
 				<div className='navbar-button-container'>
 					<UploadFormModal />
 				</div>
-				{/* <div className='navbar-button'>
+				{/* >
 					<NavLink to={`/`} exact={true} >
 						<img  src={message} className="navbar-icon" alt="homepageMessage"></img>
 					</NavLink>
 				</div>
-				<div className='navbar-button'>
+				<div >
 					<NavLink to={`/`} exact={true} >
 						<img src={inbox} className="navbar-icon" alt="homepageInbox"></img>
 					</NavLink>
 				</div> */}
 				<LogoutButton />
-				<div className='navbar-button'>
+				<div >
 					<NavLink to={`/users/${user.id}`} exact={true} >
 						<img src={user.profile_url} id='profile-icon' alt="homepageInbox"></img>
 						{/* <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
@@ -52,27 +47,33 @@ const NavBar = ({ loaded }) => {
 	} else {
 		sessionLinks = (
 			<>
-				<div >
+				<div className="navbar-button">
 					<SignUpFormModal />
 				</div>
-				<div >
+				<div className="navbar-button" id="login-button">
 					<LoginFormModal />
 				</div>
-				<div>
+				{/* <div className="navbar-button">
 					<DemoUser />
-				</div>
+				</div> */}
 			</>
 		);
 	}
 
 	return (
 		<div className='navbar__container'>
-			<NavLink  id='homepage_icon' exact to="/">
-				<img src={logo} className="navbar-icon" alt="homepageLogo"></img>
-			</NavLink>
-			<div className='session-container' >
-				{loaded && sessionLinks}
-			</div>
+			<Grid container>
+				<Grid item md={2}/>
+				<Grid item md={4} xs={6}>
+					<NavLink  id='homepage_icon' exact to="/">
+						<img src={logo} className="navbar-icon" alt="homepageLogo"></img>
+					</NavLink>
+				</Grid>
+				<Grid className='session-container' item md={4} xs={6}>
+					{loaded && sessionLinks}
+				</Grid>
+				<Grid item md={2}/>
+			</Grid>
 		</div>
 	);
 }

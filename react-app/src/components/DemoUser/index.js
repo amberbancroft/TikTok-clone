@@ -27,7 +27,7 @@ const DemoUser = () => {
 					<div key={ind}>{error}</div>
 				))}
 			</div>
-			<button type='submit' className="button3"> Demo User </button>
+			<button id="demo-button" type='submit'> Demo User </button>
 		</form>
 	)
 }

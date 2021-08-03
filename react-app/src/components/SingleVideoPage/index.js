@@ -6,6 +6,7 @@ import { useParams, useHistory } from "react-router-dom";
 // import { useEffect, useState } from "react";
 import Grid from '@material-ui/core/Grid';
 // import EditVideoForm from '../EditVideoForm';
+import EditVideoForm from "./Edit_form"
 
 
 // {setResults}
@@ -49,9 +50,9 @@ function SingleVideoPage() {
 
             <Grid item md={5} xs={2}>
                 <button onClick={() => editHelperFunction()}>Edit</button>
-                {showEditForm && (
-                    <h1>hello</h1>
-                )}
+                   {showEditForm && (
+                        <EditVideoForm/>
+                    )}
                 <div className="Edit-bar-container">
                     <button onClick={() => deleteHelperFunction()}>Delete</button>
                     {Object.values(videos)?.map((video,i) =>
@@ -60,7 +61,7 @@ function SingleVideoPage() {
                             </div>
                     )}
                 </div>
-                <div>comments here </div>
+                <div> comments here </div>
             </Grid>
         </Grid>
     )

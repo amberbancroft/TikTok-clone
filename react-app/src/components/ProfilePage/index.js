@@ -23,15 +23,15 @@ function User() {
   return (
     <ul>
       <li>
-        <strong>User Id</strong> {userId}
+        <img src={user.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
       </li>
       <li>
-        <strong>Username</strong> {user.username}
+        <strong></strong> {user.username}
       </li>
       <li>
-        <strong>Email</strong> {user.email}
+        <strong>Username</strong> {user.bio}
       </li>
-    </ul>
+    </ul>    
   );
 }
 export default User;
