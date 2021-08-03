@@ -1,6 +1,5 @@
 from flask import Blueprint, request, jsonify
 # from flask_login import login_required
-from app.forms import EditVideoForm
 from app.models import User, Video, db
 from app.awsS3 import (upload_file_to_s3, allowed_file, get_unique_filename)
 
