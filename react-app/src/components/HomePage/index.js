@@ -30,7 +30,7 @@ function HomePage() {
             <Grid item md={2}/>
             <Grid item md={3} xs={2}>
                <div className="sidebar-container">
-                   <div  >
+                   <div>
                        <a className="individual-container" id="foryou-container" href={`/`}>
                             <img src={ForYou} alt="ForYouLogo" ></img>
                         </a>
