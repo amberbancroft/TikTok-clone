@@ -21,10 +21,6 @@ function HomePage() {
         dispatch(getVideos())
     }, [dispatch])
 
-    const getUserFunction = () => {
-        return 'poop'
-    }
-
     return (
         <Grid container>
             <Grid item md={2}/>
@@ -56,15 +52,14 @@ function HomePage() {
                </div>
             </Grid>
             <Grid item md={5} xs={10}>
-                <div className="poster-info">
-
-                    {/* <button> Comment </button> */}
-                </div>
                 {Object.values(videos)?.map((video,i) => (
                     <div key={i}>
                         <a href={`/videos/${video.id}`}>
-                            <div>{`${video.poster_Id}`}</div>
-                            <div></div>
+                            <div className='profile-header-container'>
+                                <img src={video.user.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
+                                <div>{`${video.user.username}`}</div>
+                                <button className='Comment-button'> Comment </button>
+                            </div>
                             <video src={video.video_url} alt='not-working' style={{width: '60%'}} controls></video>
                         </a>
                     </div>
@@ -74,6 +69,5 @@ function HomePage() {
         </Grid>
     )
 }
-
 
 export default HomePage
