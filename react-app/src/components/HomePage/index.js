@@ -28,15 +28,22 @@ function HomePage() {
             <Grid item md={5} xs={10}>
                 {Object.values(videos)?.map((video,i) => (
                     <div key={i}>
-                        <a href={`/videos/${video.id}`}>
-                            <div className='profile-header-container'>
+                        <div className='profile-header-container'>
+                            <div className='profile-info-container'>
                                 <img src={video.user.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
-                                <div>{`${video.user.username}`}</div>
-                                <button className='Comment-button'> Comment </button>
+                                <div className='video-description-container'>
+                                    <div>{`${video.user.username}`}</div>
+                                    <div>{`${video.description}`}</div>
+                                </div>
                             </div>
-                            <video src={video.video_url} alt='not-working' style={{width: '60%'}} controls></video>
-                            <hr />
-                        </a>
+                            <button className='Comment-button'> Comment </button>
+                        </div>
+                        <div id='home-video'>
+                            <a  href={`/videos/${video.id}`}>
+                                <video  src={video.video_url} alt='not-working' style={{size:'50%'}} controls></video>
+                            </a>
+                        </div>
+                        <hr />   
                     </div>
                 ))}
             </Grid>
