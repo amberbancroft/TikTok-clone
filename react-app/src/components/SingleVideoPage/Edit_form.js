@@ -25,7 +25,7 @@ const EditVideoForm = ({video_id}) => {
             {/* <ul className="form-errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul> */}
-            <button onClick={() => {console.log('BABYYYYYYYYY', video_id)}}>Video info</button>
+            {/* <button onClick={() => {console.log('Poop', video_id)}}>Video info</button> */}
             <hr />
             <div>
                 <input
