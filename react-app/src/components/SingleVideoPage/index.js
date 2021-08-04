@@ -1,12 +1,12 @@
 // Imports
 import { getVideo, deleteVideo } from '../../store/video'
+import { getComments } from '../../store/comment'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 // import { useEffect, useState } from "react";
 import Grid from '@material-ui/core/Grid';
 import CancelIcon from '@material-ui/icons/Cancel';
-// import EditVideoForm from '../EditVideoForm';
 import EditVideoForm from "./Edit_form"
 import './SingleVideoPage.css';
 
@@ -15,6 +15,7 @@ function SingleVideoPage() {
     // Data being pulled from store
     const { videoId } = useParams()
     const videos = useSelector(state => state.videos)
+    const comments = useSelector(state => state.comments)
     const user = useSelector(state => state.session.user)
     const [showEditForm, setShowEditForm] = useState(false)
 
@@ -26,9 +27,12 @@ function SingleVideoPage() {
         dispatch(getVideo(videoId))
     }, [dispatch])
 
+    useEffect(() => {
+        dispatch(getComments())
+    }, [dispatch])
+
     const editHelperFunction = (e) => {
-        // always the opposite of the original state
-        setShowEditForm(prev => !prev)
+        setShowEditForm(prev => !prev) // always the opposite of the original state
     }
 
 	const deleteHelperFunction = (e) => {
@@ -68,14 +72,25 @@ function SingleVideoPage() {
                                         <button onClick={() => deleteHelperFunction()}>Delete</button>
                                     </>
                                 )}
+                                
+                                <hr />
+
+                                <div className='Comments-container'> 
+                                    {Object.values(comments)?.map((comment,i) =>
+                                        <div className='comment-container' key={i} >
+                                            {video?.single_video?.id === comment?.video_Id && (
+                                                <>
+                                                    <div>{`${comment?.content}`}</div>
+                                                </>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         )}
                     </div>
                 </div>
-                <hr />
-                <div className='Comments-container'> 
-                    comments here 
-                </div>
+                
             </Grid>
         </Grid>
     )
