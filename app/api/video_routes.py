@@ -1,17 +1,8 @@
-from flask import Blueprint, request, jsonify
-# from flask_login import login_required
-from app.models import User, Video, db
+from flask import Blueprint, request
+from app.models import Video, db
 from app.awsS3 import (upload_file_to_s3, allowed_file, get_unique_filename)
 
 video_routes = Blueprint('videos', __name__)
-
-# Validators defined
-# def validation_error_messages(validation_errors):
-#     errorMessages = []
-#     for field in validation_errors:
-#         for error in validation_errors[field]:
-#             errorMessages.append(f'{field} : {error}')
-#     return errorMessages
 
 # Routes Defined:
 #Get
@@ -62,13 +53,6 @@ def single_video(id):
 # Edit   
 @video_routes.route('/<int:id>', methods=['PUT'])
 def video_edit(id):
-    # form = EditVideoForm()
-    # # form['csrf_token'].data = request.cookies['csrf_token']
-    # if form.validate_on_submit():
-    #     edit_video = Video.query.get(id)
-    #     form.populate_obj(edit_video)
-    #     db.session.commit()
-    #     return edit_video.to_dict()
     video = Video.query.get(id)
     description = request.json['description']
     video.description = description
