@@ -35,9 +35,9 @@ function App() {
             <Route path='/videos/:videoId' exact={true}>
               <SingleVideoPage/>
             </Route>
-            <ProtectedRoute path='/users/:userId' exact={true} >
+            {/* <ProtectedRoute path='/users/:userId' exact={true} >
               <User/>
-            </ProtectedRoute>
+            </ProtectedRoute> */}
           </Switch>
         )}
       </>

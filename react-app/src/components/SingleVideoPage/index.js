@@ -45,7 +45,7 @@ function SingleVideoPage() {
                     </a>
                     {Object.values(videos)?.map((video,i) =>
                         <div id='single-video' key={i} >
-                            <video src={video.single_video.video_url} alt='not-working' controls></video>
+                            <video src={video.single_video?.video_url} alt='not-working' controls></video>
                         </div>
                     )}      
                 </div>
@@ -56,15 +56,15 @@ function SingleVideoPage() {
                     <div className="Edit-bar-container">
                         {Object.values(videos)?.map((video,i) =>
                             <div className='profile-info-container' key={i} >
-                                <img src={video.single_video.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
+                                <img src={video.single_video?.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
                                 <div className='video-description-container'>
-                                    <div>{`${video.single_video.user?.username}`}</div>
-                                    <div>{`${video.single_video.description}`} </div>
+                                    <div>{`${video.single_video?.user?.username}`}</div>
+                                    <div>{`${video.single_video?.description}`} </div>
                                 </div>
-                                {user?.id === video.single_video.poster_Id && (
+                                {user?.id === video.single_video?.poster_Id && (
                                     <>
                                         <button onClick={() => editHelperFunction()}>Edit</button>
-                                        {showEditForm && ( <EditVideoForm/>)}
+                                        {showEditForm && (<EditVideoForm video_id={video?.single_video?.id}/>)}
                                         <button onClick={() => deleteHelperFunction()}>Delete</button>
                                     </>
                                 )}

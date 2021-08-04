@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {update_Video} from '../../store/video';
 
-const EditVideoForm = () => {
+const EditVideoForm = ({video_id}) => {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
     const [description, setDescription] = useState('');
@@ -10,12 +10,14 @@ const EditVideoForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
-        return dispatch(update_Video(description)).catch(
-            async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            }
-        );
+        // return dispatch(update_Video({description, video_id})).catch(
+        //     async (res) => {
+        //         const data = await res.json();
+        //         if (data && data.errors) setErrors(data.errors);
+        //     }
+        // );
+        dispatch(update_Video({description, video_id}))
+        window.location.reload(true);
     };
 
     return (
@@ -23,6 +25,7 @@ const EditVideoForm = () => {
             {/* <ul className="form-errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul> */}
+            <button onClick={() => {console.log('BABYYYYYYYYY', video_id)}}>Video info</button>
             <hr />
             <div>
                 <input
