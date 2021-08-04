@@ -62,15 +62,20 @@ def single_video(id):
 # Edit   
 @video_routes.route('/<int:id>', methods=['PUT'])
 def video_edit(id):
-    form = EditVideoForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        edit_video = Video.query.get(id)
-        form.populate_obj(edit_video)
-        db.session.commit()
-        return edit_video.to_dict()
+    # form = EditVideoForm()
+    # # form['csrf_token'].data = request.cookies['csrf_token']
+    # if form.validate_on_submit():
+    #     edit_video = Video.query.get(id)
+    #     form.populate_obj(edit_video)
+    #     db.session.commit()
+    #     return edit_video.to_dict()
+    video = Video.query.get(id)
+    description = request.json['description']
+    video.description = description
+    db.session.add(video)
+    db.session.commit()
     # print("Unable to validate: ", form.errors)
-    return {'errors': form.errors}
+    return video.to_dict()
 
 # Delete
 @video_routes.route('/<int:id>', methods=['DELETE'])
