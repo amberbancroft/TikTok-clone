@@ -8,7 +8,6 @@ import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal';
 import UploadFormModal from '../Upload/UploadModal';
 import logo from './images/logo.png'
 import Grid from '@material-ui/core/Grid';
-
 // import message from './images/message.png'
 // import inbox from './images/inbox.png'
 import "./NavBar.css"
@@ -33,7 +32,9 @@ const NavBar = ({ loaded }) => {
 						<img src={inbox} className="navbar-icon" alt="homepageInbox"></img>
 					</NavLink>
 				</div> */}
-				<LogoutButton />
+				<NavLink to={`/`} exact={true}>
+					<LogoutButton />
+				</NavLink>
 				<div >
 					<NavLink to={`/users/${user.id}`} exact={true} >
 						<img src={user.profile_url} id='profile-icon' alt="homepageInbox"></img>

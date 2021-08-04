@@ -1,0 +1,26 @@
+.Video-container{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(28,25,23);
+}
+#single-video{
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    padding-right: 35px;
+}
+#cancel-icon{
+    /* background-color:white; */
+    color:grey;
+    font-size: 50px;
+    padding-top: 5px;
+}
+.profile-info-container{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+}
+.video-description-container{
+    display:flex;
+    flex-direction: column;
+}

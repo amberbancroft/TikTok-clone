@@ -41,6 +41,7 @@ export const getVideos = () => async (dispatch) => {
         const videos = await response.json()
         // console.log('************************************', videos)
         dispatch(loadVideos(videos))
+        return response
     }
 }
 
@@ -82,19 +83,19 @@ export const createVideo = (poster_Id, description, video_url) => async (dispatc
 }
 
 export const update_Video = (description) => async (dispatch) => {
-    const response = await fetch(`/api/videos/${description}`, {
+    const response = await fetch(`/api/videos/${description.video_id}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({description})
+        body: JSON.stringify(description)
     })
     if (response.ok) {
         const updatedVideo = await response.json()
         dispatch(updateVideo(updatedVideo))
-        // console.log('THIS WILL PRINT ONLY IF THE RESPONSE IS OK', updatedReview)
+        console.log('THIS WILL PRINT ONLY IF THE RESPONSE IS OK', updatedVideo)
     }
-    // console.log('THIS WILL PRINT EVEN IF THE RESPONSE IS NOT OKAY, title, body, rating', title, body, rating)
+    console.log('THIS WILL PRINT EVEN IF THE RESPONSE IS NOT OKAY', description)
 }
 
 export const deleteVideo = videoId => async (dispatch) => {
