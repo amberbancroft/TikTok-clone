@@ -9,9 +9,11 @@ const LogoutButton = () => {
     await dispatch(logout());
   };
 
-  return <button onClick={onLogout}>
-    <img src={logout_icon} id='logout_icon' alt="homepageInbox"></img>
-  </button>;
+  return (
+    <button onClick={ onLogout }>
+      <img src={ logout_icon } id='logout_icon' alt="homepageInbox"></img>
+    </button>
+  ); 
 };
 
 export default LogoutButton;

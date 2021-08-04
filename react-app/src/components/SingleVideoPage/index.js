@@ -15,6 +15,7 @@ function SingleVideoPage() {
     // Data being pulled from store
     const { videoId } = useParams()
     const videos = useSelector(state => state.videos)
+    const user = useSelector(state => state.session.user)
     const [showEditForm, setShowEditForm] = useState(false)
 
     // Variables
@@ -55,16 +56,20 @@ function SingleVideoPage() {
                     <div className="Edit-bar-container">
                         {Object.values(videos)?.map((video,i) =>
                             <div className='profile-info-container' key={i} >
-                                <img src={video.single_video.user.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
+                                <img src={video.single_video.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
                                 <div className='video-description-container'>
-                                    <div>{`${video.single_video.user.username}`}</div>
+                                    <div>{`${video.single_video.user?.username}`}</div>
                                     <div>{`${video.single_video.description}`} </div>
                                 </div>
+                                {user?.id === video.single_video.poster_Id && (
+                                    <>
+                                        <button onClick={() => editHelperFunction()}>Edit</button>
+                                        {showEditForm && ( <EditVideoForm/>)}
+                                        <button onClick={() => deleteHelperFunction()}>Delete</button>
+                                    </>
+                                )}
                             </div>
                         )}
-                        <button onClick={() => editHelperFunction()}>Edit</button>
-                        {showEditForm && ( <EditVideoForm/>)}
-                        <button onClick={() => deleteHelperFunction()}>Delete</button>
                     </div>
                 </div>
                 <hr />

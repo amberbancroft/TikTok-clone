@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import NavBar from './components/NavBar/index';
 import HomePage from './components/HomePage/index';
-// import ProtectedRoute from './components/auth/ProtectedRoute';
-// import User from './components/User';
+import ProtectedRoute from './components/auth/ProtectedRoute';
+import User from './components/ProfilePage/index';
 import SingleVideoPage from './components/SingleVideoPage/index'
 import { authenticate } from './store/session';
 
@@ -23,23 +23,41 @@ function App() {
     return null;
   }
 
+  const DefaultRoutes = () => {
+    return (
+      <>
+        <NavBar loaded={loaded} />
+        {loaded && (
+          <Switch>
+            <Route path='/' exact={true} >
+              <HomePage/>
+            </Route>
+            <Route path='/videos/:videoId' exact={true}>
+              <SingleVideoPage/>
+            </Route>
+            <ProtectedRoute path='/users/:userId' exact={true} >
+              <User/>
+            </ProtectedRoute>
+          </Switch>
+        )}
+      </>
+    )
+  }
+
+  // const SpecialRoutes = () => {
+  //   return (
+  //     <Route path='/videos/:videoId' exact={true}>
+  //       <SingleVideoPage/>
+  //     </Route>
+  //   )
+  // }
+
   return (
     <BrowserRouter>
-      <NavBar loaded={loaded} />
-      {loaded && (
-        <Switch>
-          <Route path='/' exact={true} >
-            <HomePage/>
-          </Route>
-          <Route path='/videos/:videoId' exact>
-            <SingleVideoPage/>
-          </Route>
-          {/* <ProtectedRoute path='/users' exact={true} >
-            <UsersList/>
-          </ProtectedRoute>
-          */}
-        </Switch>
-      )}
+      <Switch>
+        {/* <Route component={SpecialRoutes} exact={true}/> */}
+        <Route component={DefaultRoutes} exact={true}/>
+      </Switch>
     </BrowserRouter>
   );
 }

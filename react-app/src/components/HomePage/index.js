@@ -30,9 +30,9 @@ function HomePage() {
                     <div key={i}>
                         <div className='profile-header-container'>
                             <div className='profile-info-container'>
-                                <img src={video.user.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
+                                <img src={video.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
                                 <div className='video-description-container'>
-                                    <div>{`${video.user.username}`}</div>
+                                    <div>{`${video.user?.username}`}</div>
                                     <div>{`${video.description}`}</div>
                                 </div>
                             </div>
