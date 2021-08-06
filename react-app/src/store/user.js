@@ -11,7 +11,6 @@ export const getUsers = () => async (dispatch) => {
 
     if (response.ok) {
         const users = await response.json()
-        // console.log('************************************', videos)
         dispatch(loadUsers (users))
     }
 }
@@ -21,7 +20,6 @@ export const getUsers = () => async (dispatch) => {
 const initialState = {}
 
 export default function users(state = initialState, action) {
-    // let updatedState = {...state}
     switch (action.type) {
         case GET_ALL_USERS:{
             const newState = {}
