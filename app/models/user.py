@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
 
     # DataBase relationship
     videos = db.relationship('Video', back_populates='user', lazy='subquery')
+    comments = db.relationship('Comment', back_populates='user', lazy='subquery')
 
     @property
     def password(self):

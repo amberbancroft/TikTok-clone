@@ -36,7 +36,9 @@ function HomePage() {
                                     <div>{`${video.description}`}</div>
                                 </div>
                             </div>
-                            <button className='Comment-button'> Comment </button>
+                            <a href={`/videos/${video.id}`}>
+                                <button className='Comment-button'> Comment </button>
+                            </a>
                         </div>
                         <div id='home-video'>
                             <a  href={`/videos/${video.id}`}>

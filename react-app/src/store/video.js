@@ -93,9 +93,9 @@ export const update_Video = (description) => async (dispatch) => {
     if (response.ok) {
         const updatedVideo = await response.json()
         dispatch(updateVideo(updatedVideo))
-        console.log('THIS WILL PRINT ONLY IF THE RESPONSE IS OK', updatedVideo)
+        // console.log('THIS WILL PRINT ONLY IF THE RESPONSE IS OK', updatedVideo)
     }
-    console.log('THIS WILL PRINT EVEN IF THE RESPONSE IS NOT OKAY', description)
+    // console.log('THIS WILL PRINT EVEN IF THE RESPONSE IS NOT OKAY', description)
 }
 
 export const deleteVideo = videoId => async (dispatch) => {

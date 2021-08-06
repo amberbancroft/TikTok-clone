@@ -1,28 +1,26 @@
 from .db import db
 import datetime
 
-class Video(db.Model):
-    __tablename__ = 'videos'
+class Comment(db.Model):
+    __tablename__ = 'comments'
 
     id = db.Column(db.Integer, nullable=False, primary_key=True)
+    content = db.Column(db.String(40), nullable=True)
     poster_Id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    description= db.Column(db.String(40), nullable=True)
-    video_url = db.Column(db.String, nullable=False)
+    video_Id = db.Column(db.Integer, db.ForeignKey('videos.id'), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
     # DataBase relationship
-    user = db.relationship('User', back_populates='videos', lazy='subquery')
-    comments = db.relationship('Comment', back_populates='video', lazy='subquery')
+    user = db.relationship('User', back_populates='comments', lazy='subquery')
+    video = db.relationship('Video', back_populates='comments', lazy='subquery')
 
     def to_dict(self):
         return {
             'id': self.id,
+            'content': self.content,
             'poster_Id': self.poster_Id,
-            'description': self.description,
-            'video_url': self.video_url,
+            'video_Id': self.video_Id,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-
-            'user': self.user.to_dict(),
         }
