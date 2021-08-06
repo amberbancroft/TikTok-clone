@@ -32,14 +32,13 @@ const deleteSingleVideo = (video) => ({
     video
 })
 
-// thunk
+// thunks
 export const getVideos = () => async (dispatch) => {
     const response = await fetch(`/api/videos/`)
     
 
     if (response.ok) {
         const videos = await response.json()
-        // console.log('************************************', videos)
         dispatch(loadVideos(videos))
         return response
     }
@@ -50,7 +49,6 @@ export const getVideo = (videoId) => async dispatch => {
   
     if (response.ok) {
       const videoData = await response.json();
-    //   console.log("single video", videoData);
       dispatch(loadSingleVideo(videoData));
     }
 };
@@ -74,12 +72,10 @@ export const createVideo = (poster_Id, description, video_url) => async (dispatc
     })
 
     const data = await response.json()
-    // console.log('getting to the thunk', video_url, description, poster_Id, data)
     if (data.errors){
         return data
     }
     dispatch(addVideo(data))
-    // console.log('thunk after dispatch', video_url, description, poster_Id, data)
 }
 
 export const update_Video = (description) => async (dispatch) => {
@@ -93,9 +89,7 @@ export const update_Video = (description) => async (dispatch) => {
     if (response.ok) {
         const updatedVideo = await response.json()
         dispatch(updateVideo(updatedVideo))
-        // console.log('THIS WILL PRINT ONLY IF THE RESPONSE IS OK', updatedVideo)
     }
-    // console.log('THIS WILL PRINT EVEN IF THE RESPONSE IS NOT OKAY', description)
 }
 
 export const deleteVideo = videoId => async (dispatch) => {
@@ -104,9 +98,7 @@ export const deleteVideo = videoId => async (dispatch) => {
     })
     if (response.ok) {
         dispatch(deleteSingleVideo(videoId))
-        // console.log('deleted a review response.ok')
     }
-    // console.log('THis is from the deleteReview in store', reviewId)
 }
 
 

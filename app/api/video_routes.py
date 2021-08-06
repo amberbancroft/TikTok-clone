@@ -33,13 +33,11 @@ def new_video():
     poster_Id = request.form['poster_Id']
     description = request.form['description']
     url = upload['url']
-    # print('**********************', url, poster_Id, description)
     video = Video(
         poster_Id=poster_Id,
         description=description,
         video_url=url,
     )
-    # print('**********************', video)
     db.session.add(video)
     db.session.commit()
     return {video.id: video.to_dict()}
@@ -58,14 +56,12 @@ def video_edit(id):
     video.description = description
     db.session.add(video)
     db.session.commit()
-    # print("Unable to validate: ", form.errors)
     return video.to_dict()
 
 # Delete
 @video_routes.route('/<int:id>', methods=['DELETE'])
 def delete_video_by_id(id):
     delete_video = Video.query.get(id)
-    # print('**********************', delete_video)
     db.session.delete(delete_video)
     db.session.commit()
     return {'delete_video': delete_video.to_dict()}
