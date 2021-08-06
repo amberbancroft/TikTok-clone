@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { update_Video } from '../../store/video';
+import { update_comment } from '../../store/comment';
 
-const EditVideoForm = ({video_id}) => {
+const EditCommentForm = ({ comment_id }) => {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
-    const [description, setDescription] = useState('');
+    const [content, setContent] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,12 +16,12 @@ const EditVideoForm = ({video_id}) => {
         //         if (data && data.errors) setErrors(data.errors);
         //     }
         // );
-        dispatch(update_Video({description, video_id}))
-        window.location.reload(true);
+        dispatch(update_comment( content , comment_id ))
+        // window.location.reload(true);
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit= { handleSubmit }>
             {/* <ul className="form-errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul> */}
@@ -30,14 +30,15 @@ const EditVideoForm = ({video_id}) => {
             <div>
                 <input
                     type="text"
-                    placeholder='Description'
-                    value= { description }
-                    onChange= { (e) => setDescription(e.target.value) }
+                    placeholder='Content'
+                    value= { content }
+                    onChange= { (e) => setContent(e.target.value) }
                 />
             </div>
+            {/* <button onClick={() => console.log('%%%%%%%%%%%%%%%%%%%%', comment_id )}> hi </button> */}
             <button type="submit"> Save </button>
         </form>
     );
 };
 
-export default EditVideoForm;
+export default EditCommentForm;
