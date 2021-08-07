@@ -7,6 +7,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import ForYou from './foryou.png'
 import { getUsers } from '../../store/user'
 import { NavLink } from 'react-router-dom';
+import React from "react";
+import './SideBar.css';
 
 function SideBar() {
     const user = useSelector(state => state.session.user);
@@ -19,7 +21,7 @@ function SideBar() {
     }, [dispatch])
 
     return (
-        <>
+        < React.Fragment className='flex-col-scroll'>
             <div>
                 <a className="individual-container" id="foryou-container" href={`/`}>
                     <img src={ForYou} alt="ForYouLogo" ></img>
@@ -48,7 +50,7 @@ function SideBar() {
                     <GitHubIcon/>
                 </a>
             </div>
-        </>
+        </React.Fragment>
     )
 }
 
