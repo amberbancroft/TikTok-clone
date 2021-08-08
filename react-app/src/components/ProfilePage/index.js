@@ -33,7 +33,6 @@ function User() {
   }
 
   return (
-    // <div>hello</div>
     <Grid container>
       <Grid item md={2}/>
       <Grid item md={3} xs={2}>
@@ -54,14 +53,3 @@ function User() {
 };
 
 export default User;
-
-
-{/* <div className='profile-header-container'>
-    <div className='profile-info-container'>
-      <img src={video.user.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
-    </div>
-    <div>{`${video.user.username}`}</div>
-      <div className='video-description-container'>
-      {/* <div>{`${video.description}`}</div> */}
-  {/* {/* </div>
-// </div> */}

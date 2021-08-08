@@ -28,7 +28,7 @@ function SingleVideoPage() {
 
     useEffect(() => {
         dispatch(getVideo(videoId))
-    }, [dispatch])
+    }, [dispatch, videoId])
 
     useEffect(() => {
         dispatch(getComments())
@@ -93,12 +93,10 @@ function SingleVideoPage() {
                                                     <div>{`${comment?.content}`}</div>
                                                     {user?.id === comment?.poster_Id && (
                                                         <>
-                                                        {/* <button onClick={() => console.log('&&&&&&&&&&&&&&&&&&&&&&', comment)}> poop </button>
-                                                            {user?.id === comment?.poster_Id && (
-                                                                <> */}
+                                                            {/* {user?.id === comment?.poster_Id && (
+                                                                <>  */}
                                                                     <button onClick={() => editHelperFunction2()}> Edit </button>
                                                                     {showEditCommentForm && (<EditCommentForm comment_id= {comment?.id}/>)}
-                                                                    {/* <button onClick={() => console.log('&&&&&&&&&&&&&&&&&&&&&&', comment?.id)}> poop </button> */}
                                                                 {/* </>
                                                             )} */}
                                                             <button onClick={() => dispatch(deleteComment(comment?.id))}>Delete</button>

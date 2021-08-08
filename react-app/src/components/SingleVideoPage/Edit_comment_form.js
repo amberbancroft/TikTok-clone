@@ -4,12 +4,12 @@ import { update_comment } from '../../store/comment';
 
 const EditCommentForm = ({ comment_id }) => {
     const dispatch = useDispatch();
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const [content, setContent] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors([]);
+        // setErrors([]);
         // return dispatch(update_Video({description, video_id})).catch(
         //     async (res) => {
         //         const data = await res.json();
@@ -25,7 +25,6 @@ const EditCommentForm = ({ comment_id }) => {
             {/* <ul className="form-errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul> */}
-            {/* <button onClick={() => {console.log('Poop', video_id)}}>Video info</button> */}
             <hr />
             <div>
                 <input
@@ -35,7 +34,6 @@ const EditCommentForm = ({ comment_id }) => {
                     onChange= { (e) => setContent(e.target.value) }
                 />
             </div>
-            {/* <button onClick={() => console.log('%%%%%%%%%%%%%%%%%%%%', comment_id )}> hi </button> */}
             <button type="submit"> Save </button>
         </form>
     );

@@ -5,7 +5,7 @@ import { createVideo } from '../../store/video';
 const UploadForm = () => {
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
-  const [errors, setErrors] = useState([]);
+//   const [errors, setErrors] = useState([]);
   const [description, setDescription] = useState('');
   const [video_url, setVideo_url] = useState('');
 
@@ -23,9 +23,9 @@ const updateVideo = async (e) => {
 
   return (
     <form className='form-container' onSubmit={handleSubmit}>
-        <ul className="form-errors">
+        {/* <ul className="form-errors">
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
+        </ul> */}
         <h2>Post to TikTok</h2>
         <div>
             <input

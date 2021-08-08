@@ -4,12 +4,12 @@ import { update_Video } from '../../store/video';
 
 const EditVideoForm = ({video_id}) => {
     const dispatch = useDispatch();
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const [description, setDescription] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors([]);
+        // setErrors([]);
         // return dispatch(update_Video({description, video_id})).catch(
         //     async (res) => {
         //         const data = await res.json();
@@ -25,7 +25,6 @@ const EditVideoForm = ({video_id}) => {
             {/* <ul className="form-errors">
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul> */}
-            {/* <button onClick={() => {console.log('Poop', video_id)}}>Video info</button> */}
             <hr />
             <div>
                 <input
