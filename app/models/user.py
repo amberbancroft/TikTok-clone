@@ -8,7 +8,7 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=True)
-    profile_url = db.Column(db.String, nullable=True)
+    profile_url = db.Column(db.String, nullable=True, default='https://tiktok-clone.s3.us-west-1.amazonaws.com/grey_face.jpeg')
     bio = db.Column(db.String, nullable=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
