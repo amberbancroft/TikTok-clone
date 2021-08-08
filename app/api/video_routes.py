@@ -40,7 +40,7 @@ def new_video():
     )
     db.session.add(video)
     db.session.commit()
-    return {video.id: video.to_dict()}
+    return video.to_dict()
 
 #Get for delete & edit
 @video_routes.route('/<int:id>')

@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createVideo } from '../../store/video';
 
-const UploadForm = () => {
+const UploadForm = ({setShowModal}) => {
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
 //   const [errors, setErrors] = useState([]);
   const [description, setDescription] = useState('');
   const [video_url, setVideo_url] = useState('');
-
+//   const [showMenu, setShowMenu] = useState(false)
 
 const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +18,7 @@ const handleSubmit = async (e) => {
     // }
     // if (!newErrors.length) {
         await dispatch(createVideo(user.id, description, video_url))
+        setShowModal(false)
 
     // }
     // else {
