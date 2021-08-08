@@ -86,7 +86,7 @@ function SingleVideoPage() {
                                 
                                 {/* Comments on specific video */}
                                 <div className='Comments-container'> 
-                                    {Object.values(comments)?.map((comment,i) =>
+                                    {/* {Object.values(comments)?.map((comment,i) =>
                                         <div className='comment-container' key={i} >
                                             {video?.single_video?.id === comment?.video_Id && (
                                                 <>
@@ -95,17 +95,18 @@ function SingleVideoPage() {
                                                         <>
                                                             {/* {user?.id === comment?.poster_Id && (
                                                                 <>  */}
-                                                                    <button onClick={() => editHelperFunction2()}> Edit </button>
-                                                                    {showEditCommentForm && (<EditCommentForm comment_id= {comment?.id}/>)}
+                                                                    {/* <button onClick={() => editHelperFunction2()}> Edit </button> */}
+                                                                    {/* {showEditCommentForm && (<EditCommentForm comment_id= {comment?.id} video_id={video?.single_video?.id}/>)} */}
                                                                 {/* </>
                                                             )} */}
-                                                            <button onClick={() => dispatch(deleteComment(comment?.id))}>Delete</button>
-                                                        </>
-                                                    )}
-                                                </>
-                                            )}
-                                        </div>
-                                    )}
+                                                            {/* <button onClick={() => dispatch(deleteComment(comment?.id))}>Delete</button> */}
+                                                        {/* </> */}
+                                                    {/* )} */}
+                                                {/* </> */}
+                                            {/* )} */}
+                                        {/* </div> */}
+                                    {/* )} */} 
+                                    <EditCommentForm video_id={video?.single_video?.id}></EditCommentForm>
                                 </div>
 
                                 {/* to post a comment on a video */}

@@ -8,6 +8,7 @@ import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal';
 import UploadFormModal from '../Upload/UploadModal';
 import logo from './images/logo.png'
 import Grid from '@material-ui/core/Grid';
+import DemoUser from '../DemoUser/index';
 // import message from './images/message.png'
 // import inbox from './images/inbox.png'
 import "./NavBar.css"
@@ -53,6 +54,9 @@ const NavBar = ({ loaded }) => {
 				</div>
 				<div className="navbar-button" id="login-button">
 					<LoginFormModal />
+				</div>
+				<div>
+					<DemoUser />
 				</div>
 				{/* <div className="navbar-button">
 					<DemoUser />

@@ -5,7 +5,7 @@ import { createVideo } from '../../store/video';
 const UploadForm = () => {
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
-  const [errors, setErrors] = useState([]);
+//   const [errors, setErrors] = useState([]);
   const [description, setDescription] = useState('');
   const [video_url, setVideo_url] = useState('');
 

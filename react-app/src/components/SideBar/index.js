@@ -21,7 +21,7 @@ function SideBar() {
     }, [dispatch])
 
     return (
-        < React.Fragment className='flex-col-scroll'>
+        < div>
             <div>
                 <a className="individual-container" id="foryou-container" href={`/`}>
                     <img src={ForYou} alt="ForYouLogo" ></img>
@@ -50,7 +50,7 @@ function SideBar() {
                     <GitHubIcon/>
                 </a>
             </div>
-        </React.Fragment>
+        </div>
     )
 }
 

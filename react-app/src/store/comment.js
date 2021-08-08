@@ -56,7 +56,7 @@ export const addComments = (content, poster_Id, video_Id) => async (dispatch) =>
     // }
 }
 
-export const update_comment = (content, comment_id) => async (dispatch) => {
+export const update_comment = (comment_id, content ) => async (dispatch) => {
     const response = await fetch(`/api/comments/${comment_id}`, {
         method: "PUT",
         headers: {
