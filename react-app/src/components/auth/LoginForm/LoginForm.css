@@ -20,3 +20,9 @@
     padding: 0 20px;
     font-size: 20px;
 }
+
+.login__button--container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
