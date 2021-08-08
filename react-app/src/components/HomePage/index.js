@@ -4,7 +4,7 @@ import { getVideos } from '../../store/video'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react";
 import { Grid } from '@material-ui/core';
-// import SideBar from '../SideBar/index';
+import SideBar from '../SideBar/index';
 import "./HomePage.css";
 
 
@@ -24,7 +24,7 @@ function HomePage() {
             <Grid container >
                 <Grid item md={2}/>
                 <Grid item md={3} xs={2} className="flex-section">
-                    {/* <SideBar /> */}
+                    <SideBar />
                 </Grid>
                 <Grid item md={5} xs={10}>
                     {Object.values(videos)?.map((video,i) => (
