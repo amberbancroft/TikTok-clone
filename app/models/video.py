@@ -13,7 +13,7 @@ class Video(db.Model):
 
     # DataBase relationship
     user = db.relationship('User', back_populates='videos', lazy='subquery')
-    comments = db.relationship('Comment', back_populates='video', lazy='subquery')
+    comments = db.relationship('Comment', back_populates='video', cascade='all, delete', passive_deletes=True)
 
     def to_dict(self):
         return {

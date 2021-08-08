@@ -32,7 +32,7 @@ const NavBar = ({ loaded }) => {
 						<img src={inbox} className="navbar-icon" alt="homepageInbox"></img>
 					</NavLink>
 				</div> */}
-				<NavLink to={`/`} exact={true}>
+				<NavLink  to={`/`} exact={true}>
 					<LogoutButton />
 				</NavLink>
 				<div >
