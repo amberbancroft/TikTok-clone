@@ -68,48 +68,31 @@ function SingleVideoPage() {
                 <div>
                     <div className="Edit-bar-container">
                         {Object.values(videos)?.map((video,i) =>
-                            <div className='profile-info-container' key={i} >
-                                <img src={video.single_video?.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
-                                <div className='video-description-container'>
-                                    <div>{`${video.single_video?.user?.username}`}</div>
-                                    <div>{`${video.single_video?.description}`} </div>
+                            <div key={i} >
+                                <div className="profile-info-containerz">
+                                    <img src={video.single_video?.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
+                                    <div className='video-description-container'>
+                                        <div>{`${video.single_video?.user?.username}`}</div>
+                                        <div>{`${video.single_video?.description}`} </div>
+                                    </div>
+                                    {user?.id === video.single_video?.poster_Id && (
+                                        <div className="btn-container">
+                                            <button className='edit-delete-btn' onClick={() => editHelperFunction()}>Edit</button>
+                                            {showEditForm && (<EditVideoForm video_id={video?.single_video?.id}/>)}
+                                            <button className='edit-delete-btn' onClick={() => deleteHelperFunction()}>Delete</button>
+                                        </div>
+                                    )}
                                 </div>
-                                {user?.id === video.single_video?.poster_Id && (
-                                    <>
-                                        <button onClick={() => editHelperFunction()}>Edit</button>
-                                        {showEditForm && (<EditVideoForm video_id={video?.single_video?.id}/>)}
-                                        <button onClick={() => deleteHelperFunction()}>Delete</button>
-                                    </>
-                                )}
                                 
                                 <hr />
                                 
                                 {/* Comments on specific video */}
                                 <div className='Comments-container'> 
-                                    {/* {Object.values(comments)?.map((comment,i) =>
-                                        <div className='comment-container' key={i} >
-                                            {video?.single_video?.id === comment?.video_Id && (
-                                                <>
-                                                    <div>{`${comment?.content}`}</div>
-                                                    {user?.id === comment?.poster_Id && (
-                                                        <>
-                                                            {/* {user?.id === comment?.poster_Id && (
-                                                                <>  */}
-                                                                    {/* <button onClick={() => editHelperFunction2()}> Edit </button> */}
-                                                                    {/* {showEditCommentForm && (<EditCommentForm comment_id= {comment?.id} video_id={video?.single_video?.id}/>)} */}
-                                                                {/* </>
-                                                            )} */}
-                                                            {/* <button onClick={() => dispatch(deleteComment(comment?.id))}>Delete</button> */}
-                                                        {/* </> */}
-                                                    {/* )} */}
-                                                {/* </> */}
-                                            {/* )} */}
-                                        {/* </div> */}
-                                    {/* )} */} 
                                     <EditCommentForm video_id={video?.single_video?.id}></EditCommentForm>
                                 </div>
 
                                 {/* to post a comment on a video */}
+                                <hr />
                                 <div>
                                     <CommentForm video_Id= {video?.single_video?.id}></CommentForm>
                                 </div>
@@ -121,5 +104,27 @@ function SingleVideoPage() {
         </Grid>
     )
 }
+
+{/* Comments on specific video */}
+{/* {Object.values(comments)?.map((comment,i) =>
+    <div className='comment-container' key={i} >
+        {video?.single_video?.id === comment?.video_Id && (
+            <>
+                <div>{`${comment?.content}`}</div>
+                {user?.id === comment?.poster_Id && (
+                    <>
+                        {/* {user?.id === comment?.poster_Id && (
+                            <>  */}
+                                {/* <button onClick={() => editHelperFunction2()}> Edit </button> */}
+                                {/* {showEditCommentForm && (<EditCommentForm comment_id= {comment?.id} video_id={video?.single_video?.id}/>)} */}
+                            {/* </>
+                        )} */}
+                        {/* <button onClick={() => dispatch(deleteComment(comment?.id))}>Delete</button> */}
+                    {/* </> */}
+                {/* )} */}
+            {/* </> */}
+        {/* )} */}
+    {/* </div> */}
+{/* )} */} 
 
 export default SingleVideoPage

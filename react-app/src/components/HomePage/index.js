@@ -30,7 +30,7 @@ function HomePage() {
                     {Object.values(videos)?.map((video,i) => (
                         <div key={i}>
                             <div className='profile-header-container'>
-                                <div className='profile-info-container'>
+                                <div className='profile-info-containerz'>
                                     <img src={video.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
                                     <div className='video-description-container'>
                                         <div>{`${video.user?.username}`}</div>
@@ -43,7 +43,7 @@ function HomePage() {
                             </div>
                             <div id='home-video'>
                                 <a  href={`/videos/${video.id}`}>
-                                    <video  src={video.video_url} alt='not-working' style={{size:'50%'}} controls></video>
+                                    <video  id='home-page-video' src={video.video_url} alt='not-working' controls></video>
                                 </a>
                             </div>
                             <hr />   

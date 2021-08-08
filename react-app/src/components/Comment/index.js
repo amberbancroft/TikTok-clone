@@ -27,12 +27,13 @@ const CommentForm = ({ video_Id }) => {
     }
 
   return (
-    <form className='form-container' onSubmit={handleSubmit}>
+    <form id='posting-comments' onSubmit={handleSubmit}>
         <ul className="form-errors">
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <div>
             <input
+                className="comment"
                 type="text"
                 placeholder='Comment'
                 value={ content }

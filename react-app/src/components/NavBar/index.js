@@ -52,15 +52,12 @@ const NavBar = ({ loaded }) => {
 				<div className="navbar-button">
 					<SignUpFormModal />
 				</div>
+				<div className="navbar-button">
+					<DemoUser />
+				</div>
 				<div className="navbar-button" id="login-button">
 					<LoginFormModal />
 				</div>
-				<div>
-					<DemoUser />
-				</div>
-				{/* <div className="navbar-button">
-					<DemoUser />
-				</div> */}
 			</>
 		);
 	}

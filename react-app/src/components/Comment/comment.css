@@ -1,0 +1,9 @@
+#posting-comments{
+    background-color:pink;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: spacex-around; */
+}
+.comment{
+    
+}
