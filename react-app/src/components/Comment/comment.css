@@ -1,0 +1,13 @@
+#posting-comments{
+    display: flex;
+    flex-direction: row;
+    /* padding-left: -10px; */
+}
+
+.comment{
+    width:25vh;  
+}
+
+#post{
+    padding-left: 10px;
+}

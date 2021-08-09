@@ -15,12 +15,21 @@
     font-size: 50px;
     padding-top: 5px;
 }
-.profile-info-container{
+.profile-info-containerz{
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items:center;
 }
 .video-description-container{
     display:flex;
     flex-direction: column;
+}
+.edit-delete-btn{
+    padding-left: 10px;
+}
+.btn-container{
+    padding-left: 30%;
+}
+.Comments-container{
+    background-color:rgb(214, 222, 222);
 }

@@ -1,0 +1,13 @@
+.comment-edit{
+   display:flex;
+   flex-direction: row;
+   border-bottom: black solid 1px;
+   justify-content:space-between;
+   padding:40px 0px;
+}
+.edit-delete-btn{
+    padding-left: 10px;
+}
+.btn-container{
+    padding-left: 30%;
+}

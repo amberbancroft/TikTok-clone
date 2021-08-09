@@ -58,7 +58,7 @@ export const createVideo = (poster_Id, description, video_url) => async (dispatc
     const formdata = new FormData()
 
     formdata.append('poster_Id', poster_Id)
-    formdata.append('description', JSON.stringify(description))
+    formdata.append('description', description)
     if (video_url){
         formdata.append('video', video_url)
     }

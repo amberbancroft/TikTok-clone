@@ -6,23 +6,34 @@ import './comment.css';
 const CommentForm = ({ video_Id }) => {
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
-  //const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
   const [content, setContent] = useState('');
 
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+      e.preventDefault();
+      let newErrors = []
+      if(!content.length) {
+        newErrors.push('Please provide a valid comment')
+      }
+      if (!newErrors.length) {
         await dispatch(addComments({ content, poster_Id: user?.id, video_Id: video_Id }))
         setContent('')
+
+      }
+      else {
+        setErrors(newErrors)
+      }
     }
 
   return (
-    <form className='form-container' onSubmit={handleSubmit}>
-        {/* <ul className="form-errors">
+    <form id='posting-comments' onSubmit={handleSubmit}>
+        <ul className="form-errors">
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul> */}
+        </ul>
         <div>
             <input
+                className="comment"
                 type="text"
                 placeholder='Comment'
                 value={ content }
@@ -31,7 +42,7 @@ const CommentForm = ({ video_Id }) => {
             />
         </div>
         <div>
-            <button type="submit"> Post </button>
+            <button id='post' type="submit"> Post </button>
         </div>
     </form>
   );

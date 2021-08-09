@@ -40,13 +40,32 @@ function User() {
               <SideBar/>
           </div>
       </Grid>
+
+      {/* profile info and videos */}
       <Grid item md={5} xs={10}>
+        <div>
+
+        </div>
         {Object.values(videos)?.map((video,i) => (
           <div key={i}>
-            <button onClick={() => console.log(video)}>poop</button>
+            {user.id === video?.poster_Id && (
+              <>
+              <div className='profile-info-profile'>
+                <img src={video.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
+                <div>{video.user?.username} </div>
+                <div>{video.user?.bio} </div>
+              </div>
+                <div id='profile-video'>
+                  <a  href={`/videos/${video.id}`}>
+                      <video  id='home-page-video' src={video.video_url} alt='not-working' controls></video>
+                  </a>
+                </div>
+              </>
+            )} 
           </div>
         ))}
       </Grid>
+
       <Grid item md={2}/>
     </Grid>
   );

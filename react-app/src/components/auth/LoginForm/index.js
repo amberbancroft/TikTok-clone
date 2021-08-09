@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import * as sessionActions from '../../../store/session';
+// import * as sessionActions from '../../../store/session';
+import { login } from '../../../store/session'
 import './LoginForm.css';
+
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -9,22 +11,26 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
       e.preventDefault();
       setErrors([]);
-      return dispatch(sessionActions.login(email, password)).catch(
-          async (res) => {
-              const data = await res.json();
-              if (data && data.errors) setErrors(data.errors);
-          }
-      );
+    //   return dispatch(sessionActions.login(email, password)).catch(
+    //       async (res) => {
+    //           const data = await res.json();
+    //           if (data && data.errors) setErrors(data.errors);
+    //       }
+    //   ); 
+    const data = await dispatch(login(email, password))
+    if (data) { 
+        setErrors(data)
+    }
   };
 
-  const demoLogin = () => {
-      setEmail('demo@aa.io');
-      setPassword('password');
-      return dispatch(sessionActions.login(email, password))
-  }
+//   const demoLogin = () => {
+//       setEmail('demo@aa.io');
+//       setPassword('password');
+//       return dispatch(sessionActions.login(email, password))
+//   }
 
   return (
     <form className='form-container' onSubmit={handleSubmit}>
@@ -55,7 +61,7 @@ const LoginForm = () => {
     </div>
     <div className="login__button--container">
         <button className="login_btn" type="submit">Log In</button>
-        <button className="login_btn" onClick={() => demoLogin()}>Demo User</button>
+        {/* <button className="login_btn" onClick={() => demoLogin()}>Demo User</button> */}
     </div>
 </form>
   );
