@@ -1,5 +1,12 @@
 .flex-col-scroll {
-    flex-grow: 1;
-    overflow: auto;
-    min-height: 100%;
-  }
+  flex-grow: 1;
+  overflow: auto;
+  min-height: 100%;
+}
+.userProfiles-container{
+  display: flex;
+  align-items: center;
+}
+/* .line-div{
+  border-top:grey;
+} */

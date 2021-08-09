@@ -48,7 +48,7 @@ function User() {
         </div>
         {Object.values(videos)?.map((video,i) => (
           <div key={i}>
-            {user.id == video?.poster_Id && (
+            {user.id === video?.poster_Id && (
               <>
               <div className='profile-info-profile'>
                 <img src={video.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>

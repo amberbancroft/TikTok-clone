@@ -42,7 +42,7 @@ const CommentForm = ({ video_Id }) => {
             />
         </div>
         <div>
-            <button type="submit"> Post </button>
+            <button id='post' type="submit"> Post </button>
         </div>
     </form>
   );

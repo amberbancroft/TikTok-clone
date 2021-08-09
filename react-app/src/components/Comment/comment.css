@@ -1,9 +1,13 @@
 #posting-comments{
-    background-color:pink;
     display: flex;
     flex-direction: row;
-    /* justify-content: spacex-around; */
+    /* padding-left: -10px; */
 }
+
 .comment{
-    
+    width:25vh;  
+}
+
+#post{
+    padding-left: 10px;
 }

@@ -48,8 +48,8 @@ const EditCommentForm = ({ video_id }) => {
                 <div key={i} >
                     {video_id === comment?.video_Id && (
                         <div className='comment-edit'>
-                            {/* <button onClick={() => console.log(comment)}>poop</button> */}
-                            <img src={comment?.poster_Id?.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
+                            {/* <button onClick={() => console.log(comment)}>poooooop</button> */}
+                            {/* <img src={comment?.poster_Id?.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img> */}
                             <div className='comment-class'>{`${comment?.content}`}</div>
                             {user?.id === comment?.poster_Id && (
                                 <div className='btn-container'>

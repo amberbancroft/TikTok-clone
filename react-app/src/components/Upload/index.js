@@ -25,12 +25,12 @@ const handleSubmit = async (e) => {
     //     setErrors(newErrors)
     // }
 }
-const updateVideo = async (e) => {
-    const file = e.target.files[0]
-    if (file){
-        setVideo_url(file)
+    const updateVideo = async (e) => {
+        const file = e.target.files[0]
+        if (file){
+            setVideo_url(file)
+        }
     }
-}
 
 
   return (

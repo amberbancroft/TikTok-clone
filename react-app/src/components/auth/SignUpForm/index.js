@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
+import  ValidateEmail  from '../../utils'
 import './SignUpForm.css';
 
 const SignUpForm = () => {
@@ -15,12 +16,35 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data)
-      }
+    let newErrors = []
+
+    if (!ValidateEmail(email)) {
+      newErrors.push('Please provide a valid email address')
     }
+
+    if(username.length < 1) {
+      newErrors.push('Please provide a valid username')
+    } 
+    else if(username.length > 15) {
+      newErrors.push('Please provide a valid username no longer than 15 characters')
+    } 
+
+    if (password.length < 6) {
+      newErrors.push('Please provide a password longer than 6 characters')
+    }
+
+    if(!newErrors.length) {
+
+        const data = await dispatch(signUp(username, email, password));
+          if (data?.errors) {
+            setErrors(data?.errors)
+          }
+    }
+    else {
+      setErrors(newErrors)
+    }
+    // if (password === repeatPassword) {
+    // }
   };
 
   const updateUsername = (e) => {
@@ -50,7 +74,8 @@ const SignUpForm = () => {
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
-      </div>
+        <br></br>
+      </div> 
       <div>
         <label>User Name</label>
         <input

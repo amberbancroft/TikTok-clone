@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { update_Video } from '../../store/video';
 
-const EditVideoForm = ({video_id}) => {
+const EditVideoForm = ({video_id, content}) => {
     const dispatch = useDispatch();
     // const [errors, setErrors] = useState([]);
-    const [description, setDescription] = useState('');
+    const [description, setDescription] = useState(content);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // setErrors([]);
         // return dispatch(update_Video({description, video_id})).catch(
@@ -15,11 +15,12 @@ const EditVideoForm = ({video_id}) => {
         //         const data = await res.json();
         //         if (data && data.errors) setErrors(data.errors);
         //     }
-        // );
-        dispatch(update_Video({description, video_id}))
-        window.location.reload(true);
+        // ); 
+        await dispatch(update_Video({description, video_id}))
+        window.location.reload(true); 
     };
 
+    // console.log('##############', content)
     return (
         <form onSubmit={handleSubmit}>
             {/* <ul className="form-errors">

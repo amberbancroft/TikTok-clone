@@ -1,6 +1,6 @@
 // Imports
 import { getVideo, deleteVideo } from '../../store/video'
-import { getComments, deleteComment } from '../../store/comment'
+import { getComments } from '../../store/comment'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
@@ -17,10 +17,10 @@ function SingleVideoPage() {
     // Data being pulled from store
     const { videoId } = useParams()
     const videos = useSelector(state => state.videos)
-    const comments = useSelector(state => state.comments)
+    // const comments = useSelector(state => state.comments)
     const user = useSelector(state => state.session.user)
     const [showEditForm, setShowEditForm] = useState(false)
-    const [showEditCommentForm, setEditCommentForm] = useState(false)
+    // const [showEditCommentForm, setEditCommentForm] = useState(false)
 
     // Variables
     const dispatch = useDispatch()
@@ -38,9 +38,9 @@ function SingleVideoPage() {
         setShowEditForm(prev => !prev) // always the opposite of the original state
     }
 
-    const editHelperFunction2 = (e) => {
-        setEditCommentForm(prev => !prev)
-    }
+    // const editHelperFunction2 = (e) => {
+    //     setEditCommentForm(prev => !prev)
+    // }
 
 	const deleteHelperFunction = (e) => {
 		dispatch(deleteVideo(videoId));
@@ -78,7 +78,7 @@ function SingleVideoPage() {
                                     {user?.id === video.single_video?.poster_Id && (
                                         <div className="btn-container">
                                             <button className='edit-delete-btn' onClick={() => editHelperFunction()}>Edit</button>
-                                            {showEditForm && (<EditVideoForm video_id={video?.single_video?.id}/>)}
+                                            {showEditForm && (<EditVideoForm content={video?.single_video?.description} video_id={video?.single_video?.id}/>)}
                                             <button className='edit-delete-btn' onClick={() => deleteHelperFunction()}>Delete</button>
                                         </div>
                                     )}
@@ -104,27 +104,5 @@ function SingleVideoPage() {
         </Grid>
     )
 }
-
-{/* Comments on specific video */}
-{/* {Object.values(comments)?.map((comment,i) =>
-    <div className='comment-container' key={i} >
-        {video?.single_video?.id === comment?.video_Id && (
-            <>
-                <div>{`${comment?.content}`}</div>
-                {user?.id === comment?.poster_Id && (
-                    <>
-                        {/* {user?.id === comment?.poster_Id && (
-                            <>  */}
-                                {/* <button onClick={() => editHelperFunction2()}> Edit </button> */}
-                                {/* {showEditCommentForm && (<EditCommentForm comment_id= {comment?.id} video_id={video?.single_video?.id}/>)} */}
-                            {/* </>
-                        )} */}
-                        {/* <button onClick={() => dispatch(deleteComment(comment?.id))}>Delete</button> */}
-                    {/* </> */}
-                {/* )} */}
-            {/* </> */}
-        {/* )} */}
-    {/* </div> */}
-{/* )} */} 
 
 export default SingleVideoPage

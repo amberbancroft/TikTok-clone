@@ -4,7 +4,10 @@ import { getVideos } from '../../store/video'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react";
 import { Grid } from '@material-ui/core';
-import SideBar from '../SideBar/index';
+import ForYou from '../SideBar/foryou.png'
+// import SideBar from '../SideBar/index';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import "./HomePage.css";
 
 
@@ -24,7 +27,21 @@ function HomePage() {
             <Grid container >
                 <Grid item md={2}/>
                 <Grid item md={3} xs={2} className="flex-section">
-                    <SideBar />
+                    {/* <SideBar /> */}
+                    <div>
+                        <a className="individual-container" id="foryou-container" href={`/`}>
+                            <img src={ForYou} alt="ForYouLogo" ></img>
+                        </a>
+                    </div>
+                    <div className="individual-container" id="about-container">
+                        <h4>Created by: Amber Bancroft</h4>
+                        <a href={`https://www.linkedin.com/in/amber-bancroft/`}>
+                            <LinkedInIcon/>
+                        </a>
+                        <a href={`https://github.com/amberbancroft`}>
+                            <GitHubIcon/>
+                        </a>
+                    </div>
                 </Grid>
                 <Grid item md={5} xs={10}>
                     {Object.values(videos)?.map((video,i) => (
