@@ -6,13 +6,12 @@
 
 **Table of Contents**
 
-* [Table-For-Two at a Glance]
+* [TikTok at a Glance]
 * [Key Features]
 * [Technologies Used]
 * [Application Architecture]
 * [Frontend Overview]
 * [Backend Overview]
-* [Conclusion]
 
 ## TikTok at a Glance
 
@@ -22,8 +21,10 @@ The application is made with a React frontend, and the backend is a Flask server
 
 **Key Features**
 
-- Browse through all kinds of videos
-- Comment on videos
+- Browse through all videos available
+- Post, edit, and delete your own videos
+- View all comments on videos
+- post, edit, and delete your own comments
 
 
 ## Technologies Used
@@ -41,23 +42,15 @@ The application is made with a React frontend, and the backend is a Flask server
 
 ## Application Architecture
 
-The frontend is created using Python, React, and CSS. The backend is created with Python and Flask with a SQLAlchemy database. The complete project is deployed to its own Heroku server.
-
-
-##### Overview of application architecture
-
-##### TikTok SQLAlchemy database schema
+The frontend is created using Python, React, and CSS. The backend is created with Python and Flask with a SQLAlchemy database. The complete project is deployed to a Heroku server.
 
 ## Frontend Overview
 
 The frontend is built based off inspiration from the original TikTok, tiktok.com. All logos, designs, and UI have been supplied by Tiktok.
 
-Styling was handled using CSS in Python.
+Styling was handled using CSS as well as Material-UI.
 
 
 ## Backend Overview
 
 The Flask backend is a collection of RESTful routes serving data to the frontend and an interface with the SQLAlchemy database.
-
-
-## Conclusion
