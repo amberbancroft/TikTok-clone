@@ -56,16 +56,17 @@ ul{
 }
 
 #login-button{
-    border: rgb(234, 72, 89) 1px solid;
-    background-color: rgb(234, 72, 89);
-    color: white;
-    border-radius: 8%;
+    border: rgb(255, 0, 80) 1px solid;
+    background-color: rgb(255, 0, 80);
+    /* color: white;
+    font-size: 30px; */
+    border-radius: 6px;
     padding:0px 40px;
-    height: 45px;
+    height: 40px;
     margin-top: 7px;
 }
 
 #login-button:hover{
-    background-color:rgb(220, 68, 84);
-    border: rgb(220, 68, 84) 1px solid;
+    background-color:rgb(255, 0, 80);
+    border:rgb(255, 0, 80) 1px solid;
 }

@@ -1,21 +1,7 @@
-/* .signUpForm-container{
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    width: 40vh;
-    height: 40vh;
-    padding: 10px;
-    text-align: center;
+/* Buttons */
+#signup--button{
+    color: gray;
+    border-color: rgb(241, 241, 242);
+    background-color: rgb(241, 241, 242);
+    margin-bottom: 5px;
 }
-
-.form-errors{
-    height: 5px; 
-} */
-
-/* .signUpForm--element{
-    height: 50px;
-    width: 250px;
-    margin: 5px 20px;
-    padding: 0 20px;
-    font-size: 20px;
-} */

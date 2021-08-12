@@ -18,21 +18,28 @@ function UploadFormModal() {
       setShowModal(false)
     }
 
-    return () => document.removeEventListener("click", menu)
+    return () => document.removeEventListener('click', menu)
   }, [showModal])
 
   return (
     <>
-      <button onClick={openMenu}>
-        <img data-bs-toggle="tooltip" data-bs-placement="bottom" title="upload" src={upload} className="navbar-icon" alt="homepageUpload"></img>
+      <button onClick= { openMenu }>
+        <img 
+          data-bs-toggle= 'tooltip' 
+          data-bs-placement= 'bottom' 
+          title= 'upload' src= { upload } 
+          className= 'navbar-icon' 
+          alt= 'homepageUpload'
+        />
       </button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <UploadForm setShowModal={setShowModal} />
+
+      { showModal && (
+        <Modal onClose= { () => setShowModal(false) }>
+          <UploadForm setShowModal= { setShowModal } />
         </Modal>
       )}
     </>
   );
 }
 
-export default UploadFormModal;
+export default UploadFormModal

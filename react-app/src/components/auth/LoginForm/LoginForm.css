@@ -1,33 +1,8 @@
-/* Body */
-.form-container{
-    display: flex;
-    flex-direction: column;
-    width: 35vh;
-    height: 55vh;
-    text-align: center;
+/* Buttons */
+#login--button{
+    color: gray;
+    border-color: rgb(241, 241, 242);
+    background-color: rgb(241, 241, 242);
+    margin-bottom: 5px;
 }
 
-/* Errors */
-.form-errors{
-    height: 5px;
-}
-
-/* Elements */
-.login--element{
-    height: 50px;
-    width: 250px;
-    margin: 10px 20px;
-    padding: 0 20px;
-    font-size: 20px;
-}
-
-/* Footer */
-.footer--container {
-    display: flex;
-    flex-direction: row;
-}
-
-#poop{
-    background-color: pink;
-    width: 100%;
-}

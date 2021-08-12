@@ -3,7 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 import  ValidateEmail  from '../../utils'
+import CancelIcon from '@material-ui/icons/Cancel';
 import './SignUpForm.css';
+import '../Modal.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -34,17 +36,15 @@ const SignUpForm = () => {
     }
 
     if(!newErrors.length) {
-
-        const data = await dispatch(signUp(username, email, password));
-          if (data?.errors) {
-            setErrors(data?.errors)
-          }
+      const data = await dispatch(signUp(username, email, password));
+      if (data?.errors) {
+        setErrors(data?.errors)
+      }
     }
+
     else {
       setErrors(newErrors)
     }
-    // if (password === repeatPassword) {
-    // }
   };
 
   const updateUsername = (e) => {
@@ -68,54 +68,74 @@ const SignUpForm = () => {
   }
 
   return (
-    <form className='signUpForm-container' onSubmit={onSignUp}>
-      <h2>Sign up for TikTok</h2>
-      <div className="form-errors">
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-        <br></br>
-      </div> 
+    <form className= 'modal--container' onSubmit= { onSignUp }>
+
+      <CancelIcon className= 'modal--cancel--icon'></CancelIcon>
+
+      <h2 className= 'modal--header'> Sign up </h2>
+
       <div>
-        <label>User Name</label>
         <input
+          className= 'modal--input'
           type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
+          // name='username'
+          placeholder= 'Username'
+          onChange= { updateUsername }
+          value= { username }
         ></input>
       </div>
+
       <div>
-        <label>Email</label>
         <input
+          className= 'modal--input'
           type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
+          // name='email'
+          placeholder= 'Email'
+          onChange= { updateEmail }
+          value= { email }
         ></input>
       </div>
+
       <div>
-        <label>Password</label>
         <input
+          className= 'modal--input'
           type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
+          // name='password'
+          placeholder= 'Password'
+          onChange= { updatePassword }
+          value= { password }
         ></input>
       </div>
+
       <div>
-        <label>Repeat Password</label>
         <input
+          className= 'modal--input'
           type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
+          // name='repeat_password'
+          placeholder= 'Repeat Password'
+          onChange= { updateRepeatPassword }
+          value= { repeatPassword }
+          // required= { true }
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+
+      <div className= 'modal--button--container'>
+        <button  id= 'signup--button' className= 'modal--button' type= 'submit'> Sign Up </button>
+      </div>
+
+      <div className= 'modal--form--errors'>
+        { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
+      </div>
+
+      <hr className= 'modal--footer--divider'></hr>
+
+      <div className= 'modal--footer--container'>
+        <h4 className= 'modal--footer--account'> Have an account? </h4>
+        <button className= 'modal--other--link'> Login </button>
+      </div>
+
     </form>
   );
 };
 
-export default SignUpForm;
+export default SignUpForm

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../../store/session';
 import { login } from '../../../store/session'
+import CancelIcon from '@material-ui/icons/Cancel';
 import './LoginForm.css';
+import '../Modal.css'
 
 
 const LoginForm = () => {
@@ -28,44 +30,46 @@ const LoginForm = () => {
   };
 
   return (
-    <form className= 'form-container' onSubmit= { handleSubmit }>
-      <ul className= 'form-errors'>
-        { errors.map( (error, idx) => <li key= { idx } > { error } </li>) } 
-      </ul>
+    <form className= 'modal--container' onSubmit= { handleSubmit }>
 
-      <h2> Log in </h2>
+      <CancelIcon className= 'modal--cancel--icon'></CancelIcon>
 
-      <div className= 'login--element--container'>
+      <h2 className= 'modal--header'> Log in </h2>
+
+      <div>
         <input
-          className= 'login--element'
+          className= 'modal--input'
           type= 'text'
           placeholder= 'Email'
           value= { email }
-          onChange={(e) => setEmail(e.target.value)}
-          required
+          onChange={ (e) => setEmail(e.target.value) }
         />
       </div>
 
-      <div className= 'login--element--container'>
+      <div>
         <input
-          className= 'login--element'
+          className= 'modal--input'
           type= 'password'
           placeholder= 'Password' 
           value= { password }
           onChange= { (e) => setPassword(e.target.value)}
-          required
         />
       </div>
 
-      <button  type= 'submit' > Log In </button>
+      <div className= 'modal--button--container'>
+        <button  id= 'login--button' className= 'modal--button' type= 'submit'> Log In </button>
+        <button  className= 'modal--button' onClick= { () => demoLogin() }> Demo User </button>
+      </div>
 
-      <button  onClick= { () => demoLogin() }> Demo User </button>
+      <div className= 'modal--form--errors'>
+        { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
+      </div>
 
-      <hr id='poop'></hr>
+      <hr className= 'modal--footer--divider'></hr>
 
-      <div className= 'footer--container'>
-        <h4> Don't have an account? </h4>
-        <button> Sign Up </button>
+      <div className= 'modal--footer--container'>
+        <h4 className= 'modal--footer--account'> Don't have an account? </h4>
+        <button className= 'modal--other--link'> Sign Up </button>
       </div>
 
     </form>

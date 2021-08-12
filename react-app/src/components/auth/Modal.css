@@ -1,0 +1,90 @@
+/* Body */
+.modal--container{
+    display: flex;
+    flex-direction: column;
+    width: 60vh;
+    height: 89vh;
+    text-align: center;
+}
+
+/* Header */
+.modal--header{
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+/* Errors */
+.modal--form--errors{
+    height: 50vh;
+    color: rgb(255, 0, 80);
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+}
+
+/* Inputs */
+.modal--input{
+    height: 6vh;
+    width: 45vh;
+    margin: 4px;
+    font-size: 16px;
+    padding-left: 10px;
+    background-color: rgb(241, 241, 242);
+    border-radius: 6px;
+    border-color: rgb(241, 241, 242);
+    caret-color: rgb(255, 0, 80);
+    outline: none;
+} 
+
+.modal--input:hover{
+    background-color:rgb(231, 231, 232);
+}
+
+/* Buttons */
+.modal--button--container {
+    display: flex;
+    flex-direction: column;
+    
+    /* Ask TA for better way to do this */
+    padding-left: 55px;
+    padding-top: 50px;
+}
+
+.modal--cancel--icon{
+    padding-top: 8px;
+    padding-left: 430px;
+    color: rgb(77, 78, 86);
+    cursor:pointer;
+}
+
+.modal--button{
+    height: 6vh;
+    width: 46vh;
+    background-color:rgb(255, 0, 80);
+    border-radius: 2px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor:pointer;
+}
+
+/* Footer */
+.modal--footer--container {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+}
+
+.modal--footer--account{
+    padding-right: 8px;
+}
+
+.modal--footer--divider{
+    width: 99%;
+}
+
+.modal--other--link{
+    color:rgb(255, 0, 80);
+    cursor:pointer;
+}
+

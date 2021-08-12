@@ -52,9 +52,9 @@ const NavBar = ({ loaded }) => {
 				<div className="navbar-button">
 					<SignUpFormModal />
 				</div>
-				<div className="navbar-button">
+				{/* <div className="navbar-button">
 					<DemoUser />
-				</div>
+				</div> */}
 				<div className="navbar-button" id="login-button">
 					<LoginFormModal />
 				</div>
