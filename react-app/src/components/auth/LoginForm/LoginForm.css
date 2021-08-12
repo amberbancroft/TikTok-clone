@@ -2,17 +2,17 @@
 .form-container{
     display: flex;
     flex-direction: column;
-    margin: 10px 10px;
-    width: 400px;
-    height: 400px;
-    padding: 10px;
+    width: 35vh;
+    height: 55vh;
     text-align: center;
 }
 
+/* Errors */
 .form-errors{
     height: 5px;
 }
 
+/* Elements */
 .login--element{
     height: 50px;
     width: 250px;
@@ -21,8 +21,13 @@
     font-size: 20px;
 }
 
-.login__button--container{
+/* Footer */
+.footer--container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+}
+
+#poop{
+    background-color: pink;
+    width: 100%;
 }

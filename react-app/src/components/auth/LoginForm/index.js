@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import * as sessionActions from '../../../store/session';
+import * as sessionActions from '../../../store/session';
 import { login } from '../../../store/session'
 import './LoginForm.css';
 
@@ -12,59 +12,64 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
-      e.preventDefault();
-      setErrors([]);
-    //   return dispatch(sessionActions.login(email, password)).catch(
-    //       async (res) => {
-    //           const data = await res.json();
-    //           if (data && data.errors) setErrors(data.errors);
-    //       }
-    //   ); 
+    e.preventDefault();
+    setErrors([]);
+
     const data = await dispatch(login(email, password))
     if (data) { 
-        setErrors(data)
+      setErrors(data)
     }
   };
 
-//   const demoLogin = () => {
-//       setEmail('demo@aa.io');
-//       setPassword('password');
-//       return dispatch(sessionActions.login(email, password))
-//   }
+  const demoLogin = () => {
+    setEmail('demo@aa.io');
+    setPassword('password');
+    return dispatch(sessionActions.login(email, password))
+  };
 
   return (
-    <form className='form-container' onSubmit={handleSubmit}>
-    <ul className="form-errors">
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-    </ul>
-    <h2>Log in to TikTok</h2>
-    <hr />
-    <div className="login--element--container">
+    <form className= 'form-container' onSubmit= { handleSubmit }>
+      <ul className= 'form-errors'>
+        { errors.map( (error, idx) => <li key= { idx } > { error } </li>) } 
+      </ul>
+
+      <h2> Log in </h2>
+
+      <div className= 'login--element--container'>
         <input
-            className="login--element"
-            type="text"
-            placeholder='Email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+          className= 'login--element'
+          type= 'text'
+          placeholder= 'Email'
+          value= { email }
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
-    </div>
-    <div className="login--element--container">
+      </div>
+
+      <div className= 'login--element--container'>
         <input
-            className="login--element"
-            type="password"
-            placeholder='Password' 
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
+          className= 'login--element'
+          type= 'password'
+          placeholder= 'Password' 
+          value= { password }
+          onChange= { (e) => setPassword(e.target.value)}
+          required
         />
-    </div>
-    <div className="login__button--container">
-        <button className="login_btn" type="submit">Log In</button>
-        {/* <button className="login_btn" onClick={() => demoLogin()}>Demo User</button> */}
-    </div>
-</form>
+      </div>
+
+      <button  type= 'submit' > Log In </button>
+
+      <button  onClick= { () => demoLogin() }> Demo User </button>
+
+      <hr id='poop'></hr>
+
+      <div className= 'footer--container'>
+        <h4> Don't have an account? </h4>
+        <button> Sign Up </button>
+      </div>
+
+    </form>
   );
 };
 
-export default LoginForm;
+export default LoginForm
