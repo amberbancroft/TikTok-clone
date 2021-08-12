@@ -12,7 +12,7 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useEffect( () => {
     (async() => {
       await dispatch(authenticate());
       setLoaded(true);
@@ -26,16 +26,16 @@ function App() {
   const DefaultRoutes = () => {
     return (
       <>
-        <NavBar loaded={loaded} />
-        {loaded && (
+        <NavBar loaded= { loaded } />
+        { loaded && (
           <Switch>
-            <Route path='/' exact={true} >
+            <Route path='/' exact= { true }>
               <HomePage/>
             </Route>
-            <Route path='/videos/:videoId' exact={true}>
+            <Route path='/videos/:videoId' exact= { true }>
               <SingleVideoPage/>
             </Route>
-            <ProtectedRoute path='/users/:userId' exact={true} >
+            <ProtectedRoute path='/users/:userId' exact= { true }>
               <User/>
             </ProtectedRoute>
             <Route path=''> 404 not found :( </Route>
@@ -43,7 +43,7 @@ function App() {
         )}
       </>
     )
-  }
+  };
 
   // const SpecialRoutes = () => {
   //   return (
@@ -57,10 +57,10 @@ function App() {
     <BrowserRouter>
       <Switch>
         {/* <Route component={SpecialRoutes} exact={true}/> */}
-        <Route component={DefaultRoutes} exact={true}/>
+        <Route component= { DefaultRoutes } exact= { true }/>
       </Switch>
     </BrowserRouter>
-  );
-}
+  )
+};
 
-export default App;
+export default App

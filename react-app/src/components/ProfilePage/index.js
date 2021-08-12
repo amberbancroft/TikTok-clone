@@ -34,30 +34,30 @@ function User() {
 
   return (
     <Grid container>
-      <Grid item md={2}/>
-      <Grid item md={3} xs={2}>
-          <div className="sidebar-container">
+      <Grid item md= { 2 }/>
+      <Grid item md= { 3 } xs= { 2 }>
+          <div className= "sidebar-container">
               <SideBar/>
           </div>
       </Grid>
 
       {/* profile info and videos */}
-      <Grid item md={5} xs={10}>
+      <Grid item md= { 5 } xs= { 10 }>
         <div>
 
         </div>
-        {Object.values(videos)?.map((video,i) => (
-          <div key={i}>
-            {user.id === video?.poster_Id && (
+        { Object.values(videos)?.map( (video,i) => (
+          <div key= { i }>
+            { user.id === video?.poster_Id && (
               <>
-              <div className='profile-info-profile'>
-                <img src={video.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
-                <div>{video.user?.username} </div>
-                <div>{video.user?.bio} </div>
+              <div className= 'profile-info-profile'>
+                <img src= { video.user?.profile_url } id= 'profile-icon' alt= "suggested_user_photo"></img>
+                <div>{ video.user?.username } </div>
+                <div>{ video.user?.bio } </div>
               </div>
-                <div id='profile-video'>
+                <div id= 'profile-video'>
                   <a  href={`/videos/${video.id}`}>
-                      <video  id='home-page-video' src={video.video_url} alt='not-working' controls></video>
+                      <video  id= 'home-page-video' src= {video.video_url} alt= 'not-working' controls></video>
                   </a>
                 </div>
               </>
@@ -66,9 +66,9 @@ function User() {
         ))}
       </Grid>
 
-      <Grid item md={2}/>
+      <Grid item md= { 2 }/>
     </Grid>
-  );
+  )
 };
 
-export default User;
+export default User

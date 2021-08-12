@@ -10,10 +10,10 @@ const LogoutButton = () => {
   };
 
   return (
-    <button onClick={ onLogout }>
-      <img src={ logout_icon } id='logout_icon' alt="homepageInbox"></img>
+    <button onClick= { onLogout }>
+      <img src= { logout_icon } id='logout_icon' alt="homepageInbox"></img>
     </button>
-  ); 
+  )
 };
 
-export default LogoutButton;
+export default LogoutButton
