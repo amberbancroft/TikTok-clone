@@ -50,10 +50,6 @@ export const addComments = (content, poster_Id, video_Id) => async (dispatch) =>
         const data = await response.json()
         dispatch(addComment(data)) 
     }
-
-    // if (data.errors){
-    //     return data
-    // }
 }
 
 export const update_comment = (comment_id, content ) => async (dispatch) => {
@@ -63,15 +59,11 @@ export const update_comment = (comment_id, content ) => async (dispatch) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify( { content })
-        // json object
     })
     if (response.ok) {
         const updatedComment = await response.json()
         dispatch(updateComment(updatedComment))
-        // return updatedComment.to_dict()
-        // console.log('THIS WILL PRINT ONLY IF THE RESPONSE IS OK', updatedComment)
     }
-    // console.log('THIS WILL PRINT EVEN IF THE RESPONSE IS NOT OKAY', content, comment_id)
 }
 
 
@@ -81,9 +73,7 @@ export const deleteComment = commentId => async (dispatch) => {
     })
     if (response.ok) {
         dispatch(deleteSingleComment(commentId))
-        console.log('deleted a review response.ok')
     }
-    console.log('This is from the deleteReview in store', commentId)
 }
 
 // Reducer
