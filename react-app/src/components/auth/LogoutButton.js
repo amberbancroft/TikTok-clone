@@ -11,7 +11,7 @@ const LogoutButton = () => {
 
   return (
     <button onClick= { onLogout }>
-      <img src= { logout_icon } id='logout_icon' alt="homepageInbox"></img>
+      <img src= { logout_icon } id='logout_icon' alt= 'Logout_icon'></img>
     </button>
   )
 };

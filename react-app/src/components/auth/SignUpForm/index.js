@@ -35,6 +35,10 @@ const SignUpForm = () => {
       newErrors.push('Please provide a password longer than 6 characters')
     }
 
+    if (password !== repeatPassword) {
+      newErrors.push('Please make passwords match')
+    }
+
     if(!newErrors.length) {
       const data = await dispatch(signUp(username, email, password));
       if (data?.errors) {

@@ -10,7 +10,7 @@ import logo from './images/logo.png'
 import Grid from '@material-ui/core/Grid';
 // import message from './images/message.png'
 // import inbox from './images/inbox.png'
-import "./NavBar.css"
+import './NavBar.css';
 
 const NavBar = ( { loaded } ) => {
 	const user = useSelector(state => state.session.user);
@@ -24,12 +24,12 @@ const NavBar = ( { loaded } ) => {
 				</div>
 				{/* >
 					<NavLink to={`/`} exact= { true } >
-						<img  src= { message } className= 'navbar-icon' alt= 'homepageMessage'></img>
+						<img  src= { message } className= 'navbar-icon' alt= 'navbar-icon'></img>
 					</NavLink>
 				</div>
 				<div >
 					<NavLink to={`/`} exact={true} >
-						<img src= { inbox } className= 'navbar-icon' alt= 'homepageInbox'></img>
+						<img src= { inbox } className= 'navbar-icon' alt= 'navbar-icon'></img>
 					</NavLink>
 				</div> */}
 				<NavLink  to= { `/` } exact= { true }>
@@ -37,7 +37,7 @@ const NavBar = ( { loaded } ) => {
 				</NavLink>
 				<div >
 					<NavLink to= { `/users/${ user.id }` } exact= { true } >
-						<img src= { user.profile_url } id= 'profile-icon' alt= 'homepageInbox'></img>
+						<img src= { user.profile_url } id= 'profile-icon' alt= 'profile-icon'></img>
 						{/* <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
   							bottom
 						</button> */}

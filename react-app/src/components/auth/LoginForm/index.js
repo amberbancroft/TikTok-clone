@@ -31,7 +31,7 @@ const LoginForm = () => {
 
   return (
     <form className= 'modal--container' onSubmit= { handleSubmit }>
-
+      <button onClick= {console.log(document.getElementById('poop'))}> poop </button>
       <CancelIcon className= 'modal--cancel--icon'></CancelIcon>
 
       <h2 className= 'modal--header'> Log in </h2>

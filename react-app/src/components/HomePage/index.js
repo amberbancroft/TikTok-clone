@@ -1,11 +1,11 @@
 // Imports
-import React from "react";
+import React from 'react';
 import { getVideos } from '../../store/video';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from "react";
+import { useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import SideBar from '../SideBar/index';
-import "./HomePage.css";
+import './HomePage.css';
 
 
 function HomePage() {
@@ -23,7 +23,7 @@ function HomePage() {
         <div>
             <Grid container >
                 <Grid item md= { 2 }/>
-                <Grid item md= { 3 } xs= { 2 } className="flex-section">
+                <Grid item md= { 3 } xs= { 2 } className= 'flex-section'>
                     <SideBar />
                 </Grid>
                 <Grid item md= { 5 } xs= { 10 }>
@@ -34,7 +34,7 @@ function HomePage() {
 
                             <div className= 'profile-header-container'>
                                 <div className= 'profile-info-containerz'>
-                                    <img src= { video.user?.profile_url } id= 'profile-icon' alt= "suggested_user_photo"/>
+                                    <img src= { video.user?.profile_url } id= 'profile-icon' alt= 'suggested_user_photo'/>
                                     <div className= 'video-description-container'>
                                         <div> { `${video.user?.username}` } </div>
                                         <div> { `${video.description}` } </div>
@@ -60,7 +60,7 @@ function HomePage() {
                 </Grid>
 
                 <Grid item md={2}/>
-                
+
             </Grid>
         </div>
     )
