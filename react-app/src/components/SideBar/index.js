@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ForYou from './foryou.png';
 import { getUsers } from '../../store/user';
-// import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React from "react";
 import './SideBar.css';
 
@@ -27,22 +27,24 @@ function SideBar() {
                     <img src= { ForYou } alt= "ForYouLogo" />
                 </a>
             </div>
+
             <div>
                 { !user && <h4> Log in to follow creators, like videos, and view comments. </h4> }
                 { !user && <DemoUser user= { user }/> }
             </div>
-            {/* <h3 className='line-div'>Suggested Accounts</h3> */}
-            {/* <hr/> */}
-            {/* <div>
+
+            <h3 className='line-div'>Suggested Accounts</h3>
+            <div>
                 {Object.values(users).map(user => (
                     <div key={user.id}>
                         <div className="userProfiles-container">
                             <img src={user.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
-                            <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
+                            <Link to={`/users/${user.id}`}>{user.username}</Link>
                         </div>
                     </div>
                 ))}
-            </div> */}
+            </div>
+            
             <div className= "individual-container" id= "about-container">
                 <h4> Created by: Amber Bancroft </h4>
                 <a href= { `https://www.linkedin.com/in/amber-bancroft/` }>
