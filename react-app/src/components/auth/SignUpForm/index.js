@@ -74,7 +74,7 @@ const SignUpForm = ( { setShowModal } ) => {
   }
 
   const Btn = () => {
-    if (username, email, password, repeatPassword) {
+    if (username && email && password && repeatPassword) {
       return <button id= 'signup--button' className= 'modal--button' type= 'submit'> Sign Up </button>
     } else {
       return <button disabled > Sign up </button>
@@ -139,7 +139,7 @@ const SignUpForm = ( { setShowModal } ) => {
       </div>
 
       <hr className= 'modal--footer--divider'></hr>
-      
+
     </form>
 
     <div className= 'modal--footer--container'>

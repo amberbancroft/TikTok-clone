@@ -31,7 +31,7 @@ const LoginForm = ( { setShowModal } ) => {
   };
 
   const Btn = () => {
-    if (email, password) {
+    if (email && password) {
       return <button id= 'login--button' className= 'modal--button'  type= 'submit'> Log In </button>
     } else {
       return <button disabled > Log In </button>

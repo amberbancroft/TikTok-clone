@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addComments  } from '../../store/comment';
 import './comment.css';
 
-const CommentForm = ({ video_Id }) => {
+const CommentForm = ( { video_Id } ) => {
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
@@ -17,7 +17,7 @@ const CommentForm = ({ video_Id }) => {
         newErrors.push('Please provide a valid comment')
       }
       if (!newErrors.length) {
-        await dispatch(addComments({ content, poster_Id: user?.id, video_Id: video_Id }))
+        await dispatch(addComments( { content, poster_Id: user?.id, video_Id: video_Id } ))
         setContent('')
 
       }
@@ -27,22 +27,21 @@ const CommentForm = ({ video_Id }) => {
     }
 
   return (
-    <form id='posting-comments' onSubmit={handleSubmit}>
-        <ul className="form-errors">
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+    <form id= 'posting-comments' onSubmit= { handleSubmit }>
+        <ul className= 'form-errors'>
+            { errors.map((error, idx) => <li key= { idx }>{ error }</li>)}
         </ul>
         <div>
             <input
-                className="comment"
-                type="text"
+                className= 'comment'
+                type= 'text'
                 placeholder='Comment'
-                value={ content }
-                onChange={(e) => setContent(e.target.value)}
-                // required
+                value= { content }
+                onChange= { (e) => setContent(e.target.value) }
             />
         </div>
         <div>
-            <button id='post' type="submit"> Post </button>
+            <button id= 'post' type= 'submit'> Post </button>
         </div>
     </form>
   );

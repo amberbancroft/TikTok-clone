@@ -9,12 +9,13 @@ import Grid from '@material-ui/core/Grid';
 import CancelIcon from '@material-ui/icons/Cancel';
 import EditVideoForm from "./Edit_form"
 import EditCommentForm from "./Edit_comment_form"
+import LoginFormModal from '../auth/LoginForm/LoginFormModal'
+import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal'
 import './SingleVideoPage.css';
 import CommentForm from '../Comment/index';
 
 
 function SingleVideoPage() {
-    // Data being pulled from store
     const { videoId } = useParams()
     const videos = useSelector(state => state.videos)
     // const comments = useSelector(state => state.comments)
@@ -42,10 +43,10 @@ function SingleVideoPage() {
     //     setEditCommentForm(prev => !prev)
     // }
 
-	const deleteHelperFunction = (e) => {
-		dispatch(deleteVideo(videoId));
-		history.push(`/`);
-	}
+    const deleteHelperFunction = (e) => {
+        dispatch(deleteVideo(videoId));
+        history.push(`/`);
+    }
 
     return (
         <Grid container>
@@ -55,11 +56,11 @@ function SingleVideoPage() {
                     <a href={'/'}>
                         <CancelIcon id='cancel-icon' ></CancelIcon>
                     </a>
-                    {Object.values(videos)?.map((video,i) =>
+                    {Object.values(videos)?.map((video, i) =>
                         <div id='single-video' key={i} >
                             <video src={video.single_video?.video_url} alt='not-working' controls></video>
                         </div>
-                    )}      
+                    )}
                 </div>
             </Grid>
 
@@ -67,7 +68,7 @@ function SingleVideoPage() {
             <Grid item md={4} xs={2}>
                 <div>
                     <div className="Edit-bar-container">
-                        {Object.values(videos)?.map((video,i) =>
+                        {Object.values(videos)?.map((video, i) =>
                             <div key={i} >
                                 <div className="profile-info-containerz">
                                     <img src={video.single_video?.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
@@ -78,28 +79,45 @@ function SingleVideoPage() {
                                     {user?.id === video.single_video?.poster_Id && (
                                         <div className="btn-container">
                                             <button className='edit-delete-btn' onClick={() => editHelperFunction()}>Edit</button>
-                                            {showEditForm && (<EditVideoForm content={video?.single_video?.description} video_id={video?.single_video?.id}/>)}
+                                            {showEditForm && (<EditVideoForm content={video?.single_video?.description} video_id={video?.single_video?.id} />)}
                                             <button className='edit-delete-btn' onClick={() => deleteHelperFunction()}>Delete</button>
                                         </div>
                                     )}
                                 </div>
-                                
+
                                 <hr />
-                                
+
                                 {/* Comments on specific video */}
-                                <div className='Comments-container'> 
-                                    <EditCommentForm video_id={video?.single_video?.id}></EditCommentForm>
-                                </div>
+                                {user ?
+                                    <div className='Comments-container'>
+                                        <EditCommentForm video_id={video?.single_video?.id}></EditCommentForm>
+                                    </div>
+                                    :
+                                    <div>
+                                        <div>
+                                            <h2>Login to see comments</h2>
+
+                                        </div>
+                                        <h4></h4>
+                                        <div className='navbar-button' id='login-button'>
+                                            <LoginFormModal />
+                                        </div>
+                                        <h4>Don't have an account? {<div className='navbar-button'>
+                                            <SignUpFormModal />
+                                        </div>}</h4>
+
+                                    </div>
+                                }
 
                                 {/* to post a comment on a video */}
                                 <hr />
-                                <div>
+                                {/* <div>
                                     <CommentForm video_Id= {video?.single_video?.id}></CommentForm>
-                                </div>
+                                </div> */}
                             </div>
                         )}
                     </div>
-                </div> 
+                </div>
             </Grid>
         </Grid>
     )

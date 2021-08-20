@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createVideo } from '../../store/video';
 import '../auth/Modal.css'
-import { DropzoneArea } from 'material-ui-dropzone';
+// import { DropzoneArea } from 'material-ui-dropzone';
 
 const UploadForm = ( { setShowModal } ) => {
   const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
-  const [errors, setErrors] = useState([]);
+  const [errors] = useState([]);
   const [description, setDescription] = useState('');
   const [video_url, setVideo_url] = useState('');
   // const [showMenu, setShowMenu] = useState(false)
