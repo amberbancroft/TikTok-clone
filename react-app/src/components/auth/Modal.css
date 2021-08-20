@@ -66,6 +66,12 @@
     cursor:pointer;
 }
 
+/* Disabled button */
+button:disabled,
+button[disabled]{
+  cursor: not-allowed;
+}
+
 /* Footer */
 .modal--footer--container {
     display: flex;

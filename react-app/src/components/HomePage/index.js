@@ -23,7 +23,7 @@ function HomePage() {
         <Grid container >
             <Grid item md= { 2 }/>
             <Grid item md= { 3 } xs= { 2 } className= 'flex-section'>
-                <SideBar />
+                {/* <SideBar /> */}
             </Grid>
             <Grid item md= { 5 } xs= { 10 }>
 

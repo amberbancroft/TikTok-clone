@@ -81,6 +81,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
       email,
       password,
     }),
+    
   });
   
   if (response.ok) {

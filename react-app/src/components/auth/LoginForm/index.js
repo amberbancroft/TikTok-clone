@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../../store/session';
 import { login } from '../../../store/session'
+import SignUpFormModal from '../SignUpForm/SignUpFormModal';
 import CancelIcon from '@material-ui/icons/Cancel';
 import './LoginForm.css';
 import '../Modal.css'
 
 
-const LoginForm = () => {
+const LoginForm = ( { setShowModal } ) => {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
@@ -29,10 +30,19 @@ const LoginForm = () => {
     return dispatch(sessionActions.login(email, password))
   };
 
+  const Btn = () => {
+    if (email, password) {
+      return <button id= 'login--button' className= 'modal--button'  type= 'submit'> Log In </button>
+    } else {
+      return <button disabled > Log In </button>
+    }
+  }
+
   return (
+    <>
     <form className= 'modal--container' onSubmit= { handleSubmit }>
-      <button onClick= {console.log(document.getElementById('poop'))}> poop </button>
-      <CancelIcon className= 'modal--cancel--icon'></CancelIcon>
+
+      <CancelIcon onClick = { () => setShowModal(false)} className= 'modal--cancel--icon'></CancelIcon>
 
       <h2 className= 'modal--header'> Log in </h2>
 
@@ -57,7 +67,8 @@ const LoginForm = () => {
       </div>
 
       <div className= 'modal--button--container'>
-        <button  id= 'login--button' className= 'modal--button' type= 'submit'> Log In </button>
+        <Btn/>
+        {/* <button  id= 'login--button' className= 'modal--button' disabled={!!errors.length} type= 'submit'> Log In </button> */}
         <button  className= 'modal--button' onClick= { () => demoLogin() }> Demo User </button>
       </div>
 
@@ -66,13 +77,15 @@ const LoginForm = () => {
       </div>
 
       <hr className= 'modal--footer--divider'></hr>
+    </form>
 
       <div className= 'modal--footer--container'>
         <h4 className= 'modal--footer--account'> Don't have an account? </h4>
-        <button className= 'modal--other--link'> Sign Up </button>
+        {/* Ask a TA on how to close modal */}
+        <SignUpFormModal onClick = { () => setShowModal(false) }  className= 'modal--other--link' > Sign Up </SignUpFormModal>
       </div>
 
-    </form>
+    </>
   );
 };
 
