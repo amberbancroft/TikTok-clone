@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
+import  LoginFormModal from '../LoginForm/LoginFormModal'
 import  ValidateEmail  from '../../utils';
 import CancelIcon from '@material-ui/icons/Cancel';
 import './SignUpForm.css';
@@ -144,7 +145,7 @@ const SignUpForm = ( { setShowModal } ) => {
 
     <div className= 'modal--footer--container'>
       <h4 className= 'modal--footer--account'> Have an account? </h4>
-      <button className= 'modal--other--link'> Login </button>
+      <LoginFormModal onClick = { () => setShowModal(false) }  className= 'modal--other--link'> Login </LoginFormModal>
     </div>
 
     </>

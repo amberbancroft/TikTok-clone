@@ -4,7 +4,6 @@ import { getComments } from '../../store/comment'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-// import { useEffect, useState } from "react";
 import Grid from '@material-ui/core/Grid';
 import CancelIcon from '@material-ui/icons/Cancel';
 import EditVideoForm from "./Edit_form"
@@ -12,16 +11,13 @@ import EditCommentForm from "./Edit_comment_form"
 import LoginFormModal from '../auth/LoginForm/LoginFormModal'
 import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal'
 import './SingleVideoPage.css';
-import CommentForm from '../Comment/index';
 
 
 function SingleVideoPage() {
     const { videoId } = useParams()
     const videos = useSelector(state => state.videos)
-    // const comments = useSelector(state => state.comments)
     const user = useSelector(state => state.session.user)
     const [showEditForm, setShowEditForm] = useState(false)
-    // const [showEditCommentForm, setEditCommentForm] = useState(false)
 
     // Variables
     const dispatch = useDispatch()
@@ -38,10 +34,6 @@ function SingleVideoPage() {
     const editHelperFunction = (e) => {
         setShowEditForm(prev => !prev) // always the opposite of the original state
     }
-
-    // const editHelperFunction2 = (e) => {
-    //     setEditCommentForm(prev => !prev)
-    // }
 
     const deleteHelperFunction = (e) => {
         dispatch(deleteVideo(videoId));
@@ -89,31 +81,17 @@ function SingleVideoPage() {
 
                                 {/* Comments on specific video */}
                                 {user ?
-                                    <div className='Comments-container'>
-                                        <EditCommentForm video_id={video?.single_video?.id}></EditCommentForm>
+                                    <div className= 'Comments-container'>
+                                        <EditCommentForm video_id= { video?.single_video?.id } />
                                     </div>
                                     :
-                                    <div>
-                                        <div>
-                                            <h2>Login to see comments</h2>
-
-                                        </div>
-                                        <h4></h4>
-                                        <div className='navbar-button' id='login-button'>
-                                            <LoginFormModal />
-                                        </div>
-                                        <h4>Don't have an account? {<div className='navbar-button'>
-                                            <SignUpFormModal />
-                                        </div>}</h4>
-
+                                    <div className= 'Comments-login-container'>
+                                        <h2 className= 'login--header--comments'>Login to see comments</h2>
+                                        <h4 className= 'login--header--comments'>Login to see comments and like the video.</h4>
+                                        <div  id='login-button'> <LoginFormModal/> </div>
+                                        <h4> Don't have an account? <SignUpFormModal/> </h4>
                                     </div>
                                 }
-
-                                {/* to post a comment on a video */}
-                                <hr />
-                                {/* <div>
-                                    <CommentForm video_Id= {video?.single_video?.id}></CommentForm>
-                                </div> */}
                             </div>
                         )}
                     </div>

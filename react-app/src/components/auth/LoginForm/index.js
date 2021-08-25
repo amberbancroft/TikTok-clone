@@ -81,7 +81,6 @@ const LoginForm = ( { setShowModal } ) => {
 
       <div className= 'modal--footer--container'>
         <h4 className= 'modal--footer--account'> Don't have an account? </h4>
-        {/* Ask a TA on how to close modal */}
         <SignUpFormModal onClick = { () => setShowModal(false) }  className= 'modal--other--link' > Sign Up </SignUpFormModal>
       </div>
 
