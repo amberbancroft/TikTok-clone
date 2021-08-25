@@ -70,6 +70,18 @@
 button:disabled,
 button[disabled]{
   cursor: not-allowed;
+  background-color:rgb(231, 231, 232);
+  height: 6vh;
+  width: 46vh;
+  border-radius: 2px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+#login--button{
+      background-color:rgb(255, 0, 80);
 }
 
 /* Footer */

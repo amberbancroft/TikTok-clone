@@ -32,7 +32,7 @@ const LoginForm = ( { setShowModal } ) => {
 
   const Btn = () => {
     if (email && password) {
-      return <button id= 'login--button' className= 'modal--button'  type= 'submit'> Log In </button>
+      return <button style={{backgroundColor:'rgb(255, 0, 80)', color: 'white'}} id= 'login--button' className= 'modal--button' type= 'submit'> Log In </button>
     } else {
       return <button disabled > Log In </button>
     }

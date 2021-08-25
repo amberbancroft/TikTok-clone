@@ -75,7 +75,7 @@ const SignUpForm = ( { setShowModal } ) => {
 
   const Btn = () => {
     if (username && email && password && repeatPassword) {
-      return <button id= 'signup--button' className= 'modal--button' type= 'submit'> Sign Up </button>
+      return <button style={{backgroundColor:'rgb(255, 0, 80)', color: 'white'}} id= 'signup--button' className= 'modal--button' type= 'submit'> Sign Up </button>
     } else {
       return <button disabled > Sign up </button>
     }
