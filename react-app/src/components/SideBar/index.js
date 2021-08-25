@@ -39,7 +39,7 @@ function SideBar() {
                     <div key={user.id}>
                         <div className="userProfiles-container">
                             <img src={user.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
-                            <Link to={`/users/${user.id}`}>{user.username}</Link>
+                            <Link to={`/users/${user.username}`}>{user.username}</Link>
                         </div>
                     </div>
                 ))}

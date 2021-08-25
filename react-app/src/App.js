@@ -35,9 +35,9 @@ function App() {
             <Route path='/videos/:videoId' exact= { true }>
               <SingleVideoPage/>
             </Route>
-            <ProtectedRoute path='/users/:userId' exact= { true }>
+            <Route path='/users/:username' exact= { true }>
               <User/>
-            </ProtectedRoute>
+            </Route>
             <Route path=''> 404 not found :( </Route>
           </Switch>
         )}

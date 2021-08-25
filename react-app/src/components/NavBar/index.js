@@ -36,7 +36,7 @@ const NavBar = ( { loaded } ) => {
 					<LogoutButton />
 				</NavLink>
 				<div >
-					<NavLink to= { `/users/${ user.id }` } exact= { true } >
+					<NavLink to= { `/users/${ user.username }` } exact= { true } >
 						<img src= { user.profile_url } id= 'profile-icon' alt= 'profile-icon'></img>
 						{/* <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
   							bottom
