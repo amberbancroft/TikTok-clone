@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
-import  ValidateEmail  from '../../utils'
+import  LoginFormModal from '../LoginForm/LoginFormModal'
+import  ValidateEmail  from '../../utils';
+import CancelIcon from '@material-ui/icons/Cancel';
 import './SignUpForm.css';
+import '../Modal.css';
 
-const SignUpForm = () => {
+const SignUpForm = ( { setShowModal } ) => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -14,8 +17,10 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+
   const onSignUp = async (e) => {
     e.preventDefault();
+    setErrors([]);
     let newErrors = []
 
     if (!ValidateEmail(email)) {
@@ -33,18 +38,20 @@ const SignUpForm = () => {
       newErrors.push('Please provide a password longer than 6 characters')
     }
 
-    if(!newErrors.length) {
-
-        const data = await dispatch(signUp(username, email, password));
-          if (data?.errors) {
-            setErrors(data?.errors)
-          }
+    if (password !== repeatPassword) {
+      newErrors.push('Please make passwords match')
     }
+
+    if(!newErrors.length) {
+      const data = await dispatch(signUp(username, email, password));
+      if (data?.errors) {
+        setErrors(data?.errors)
+      }
+    }
+
     else {
       setErrors(newErrors)
     }
-    // if (password === repeatPassword) {
-    // }
   };
 
   const updateUsername = (e) => {
@@ -67,55 +74,82 @@ const SignUpForm = () => {
     return <Redirect to='/' />;
   }
 
+  const Btn = () => {
+    if (username && email && password && repeatPassword) {
+      return <button style={{backgroundColor:'rgb(255, 0, 80)', color: 'white'}} id= 'signup--button' className= 'modal--button' type= 'submit'> Sign Up </button>
+    } else {
+      return <button disabled > Sign up </button>
+    }
+  }
+
   return (
-    <form className='signUpForm-container' onSubmit={onSignUp}>
-      <h2>Sign up for TikTok</h2>
-      <div className="form-errors">
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-        <br></br>
-      </div> 
+    <>
+    <form className= 'modal--container' onSubmit= { onSignUp }>
+
+      <CancelIcon onClick = { () => setShowModal(false)} className= 'modal--cancel--icon'></CancelIcon>
+
+      <h2 className= 'modal--header'> Sign up </h2>
+
       <div>
-        <label>User Name</label>
         <input
+          className= 'modal--input'
           type='text'
           name='username'
-          onChange={updateUsername}
-          value={username}
+          placeholder= 'Username'
+          onChange= { updateUsername }
+          value= { username }
         ></input>
       </div>
+
       <div>
-        <label>Email</label>
         <input
+          className= 'modal--input'
           type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
+          placeholder= 'Email'
+          onChange= { updateEmail }
+          value= { email }
         ></input>
       </div>
+
       <div>
-        <label>Password</label>
         <input
+          className= 'modal--input'
           type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
+          placeholder= 'Password'
+          onChange= { updatePassword }
+          value= { password }
         ></input>
       </div>
+
       <div>
-        <label>Repeat Password</label>
         <input
+          className= 'modal--input'
           type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
+          placeholder= 'Repeat Password'
+          onChange= { updateRepeatPassword }
+          value= { repeatPassword }
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+
+      <div className= 'modal--button--container'>
+        <Btn/>
+      </div>
+
+      <div className= 'modal--form--errors'>
+        { errors.map( (error, idx) => <div key= { idx } > { error } </div>) } 
+      </div>
+
+      <hr className= 'modal--footer--divider'></hr>
+
     </form>
+
+    <div className= 'modal--footer--container'>
+      <h4 className= 'modal--footer--account'> Have an account? </h4>
+      <LoginFormModal onClick = { () => setShowModal(false) }  className= 'modal--other--link'> Login </LoginFormModal>
+    </div>
+
+    </>
   );
 };
 
-export default SignUpForm;
+export default SignUpForm

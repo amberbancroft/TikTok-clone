@@ -1,28 +1,7 @@
-/* Body */
-.form-container{
-    display: flex;
-    flex-direction: column;
-    margin: 10px 10px;
-    width: 400px;
-    height: 400px;
-    padding: 10px;
-    text-align: center;
-}
-
-.form-errors{
-    height: 5px;
-}
-
-.login--element{
-    height: 50px;
-    width: 250px;
-    margin: 10px 20px;
-    padding: 0 20px;
-    font-size: 20px;
-}
-
-.login__button--container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+/* Buttons */
+#login--button{
+    color: gray;
+    border-color: rgb(241, 241, 242);
+    background-color: rgb(241, 241, 242);
+    margin-bottom: 5px;
 }
