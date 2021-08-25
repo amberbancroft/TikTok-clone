@@ -36,3 +36,12 @@ class User(db.Model, UserMixin):
             'bio': self.bio,
             'email': self.email
         }
+    
+    def to_dict_user_info(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'bio': self.bio,
+            'videos': {video.id: video.to_dict() for video in self.videos}
+        }

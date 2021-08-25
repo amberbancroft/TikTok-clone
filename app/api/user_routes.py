@@ -6,11 +6,15 @@ user_routes = Blueprint('users', __name__)
 
 
 @user_routes.route('/')
-@login_required
+# @login_required
 def users():
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
 
+@user_routes.route('/<string:username>')
+def user_info(username):
+    user = User.query.filter_by(username=username).first()
+    return user.to_dict_user_info()
 
 @user_routes.route('/<int:id>')
 @login_required
