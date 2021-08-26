@@ -32,12 +32,12 @@ const NavBar = ( { loaded } ) => {
 						<img src= { inbox } className= 'navbar-icon' alt= 'navbar-icon'></img>
 					</NavLink>
 				</div> */}
-				<NavLink  to= { `/` } exact= { true }>
-					<LogoutButton />
+				<NavLink to= { `/` } exact= { true }>
+					<LogoutButton className= 'navbar-button'/>
 				</NavLink>
 				<div >
-					<NavLink to= { `/users/${ user.username }` } exact= { true } >
-						<img src= { user.profile_url } id= 'profile-icon' alt= 'profile-icon'></img>
+					<NavLink  to= { `/users/${ user.username }` } exact= { true } >
+						<img className= 'navbar-button' src= { user.profile_url } id= 'profile-icon' alt= 'profile-icon'></img>
 						{/* <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
   							bottom
 						</button> */}
