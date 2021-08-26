@@ -19,6 +19,7 @@
     display:flex;
     flex-direction: row;
     align-items:center;
+    height: 20vh;
 }
 .video-description-container{
     display:flex;
@@ -34,15 +35,36 @@
 /* Comments */
 .Comments-container{
     background-color:rgb(214, 222, 222);
+
 }
+
+/* Comments login container */
 .Comments-login-container{
     background-color:rgb(248, 248, 248);
-    /* display: flex;
+    display:flex;
     flex-direction: column;
-    align-content: center; */
+    align-items:center;
+    justify-content:center;
+    height: 72vh;
 }
 .login--header--comments{
     display: flex;
     justify-content: center;
-    margin: 0px;
+    margin: 10px;
+    /* header:20px; */
+}
+#login-button--comments{
+    border: rgb(255, 0, 80) 1px solid;
+    background-color: rgb(255, 0, 80);
+    color: white;
+    border-radius: 6px;
+    padding:0px 35%;
+    height: 40px;
+    margin-top: 20px;
+    cursor:pointer;
+    padding-top: 15px;
+}
+
+#official--login--button{
+    color:white;
 }

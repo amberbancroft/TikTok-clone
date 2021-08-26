@@ -27,12 +27,13 @@ function SideBar() {
                     <img src= { ForYou } alt= "ForYouLogo" />
                 </a>
             </div>
-
+            <hr/>
             <div>
                 { !user && <h4> Log in to follow creators, like videos, and view comments. </h4> }
                 { !user && <DemoUser user= { user }/> }
+                { !user && <hr/>}
             </div>
-
+            
             <h3 className='line-div'>Suggested Accounts</h3>
             <div>
                 {Object.values(users).map(user => (
@@ -44,16 +45,17 @@ function SideBar() {
                     </div>
                 ))}
             </div>
-            
+            <hr/>
             <div className= "individual-container" id= "about-container">
                 <h4> Created by: Amber Bancroft </h4>
-                <a href= { `https://www.linkedin.com/in/amber-bancroft/` }>
+                <a className= 'link--icon' href= { `https://www.linkedin.com/in/amber-bancroft/` }>
                     <LinkedInIcon/>
                 </a>
-                <a href= { `https://github.com/amberbancroft` }>
+                <a className= 'link--icon' href= { `https://github.com/amberbancroft` }>
                     <GitHubIcon/>
                 </a>
             </div>
+            <hr/>
         </div>
     )
 };

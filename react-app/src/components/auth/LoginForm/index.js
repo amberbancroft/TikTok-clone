@@ -68,7 +68,6 @@ const LoginForm = ( { setShowModal } ) => {
 
       <div className= 'modal--button--container'>
         <Btn/>
-        {/* <button  id= 'login--button' className= 'modal--button' disabled={!!errors.length} type= 'submit'> Log In </button> */}
         <button  className= 'modal--button' onClick= { () => demoLogin() }> Demo User </button>
       </div>
 

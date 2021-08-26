@@ -42,6 +42,7 @@ function SingleVideoPage() {
 
     return (
         <Grid container>
+
             {/* Video */}
             <Grid item md={8} xs={10}>
                 <div className='Video-container'>
@@ -58,43 +59,41 @@ function SingleVideoPage() {
 
             {/* Video poster information */}
             <Grid item md={4} xs={2}>
-                <div>
-                    <div className="Edit-bar-container">
-                        {Object.values(videos)?.map((video, i) =>
-                            <div key={i} >
-                                <div className="profile-info-containerz">
-                                    <img src={video.single_video?.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
-                                    <div className='video-description-container'>
-                                        <div>{`${video.single_video?.user?.username}`}</div>
-                                        <div>{`${video.single_video?.description}`} </div>
-                                    </div>
-                                    {user?.id === video.single_video?.poster_Id && (
-                                        <div className="btn-container">
-                                            <button className='edit-delete-btn' onClick={() => editHelperFunction()}>Edit</button>
-                                            {showEditForm && (<EditVideoForm content={video?.single_video?.description} video_id={video?.single_video?.id} />)}
-                                            <button className='edit-delete-btn' onClick={() => deleteHelperFunction()}>Delete</button>
-                                        </div>
-                                    )}
+                <div className="Edit-bar-container">
+                    {Object.values(videos)?.map((video, i) =>
+                        <div key={i} >
+                            <div className="profile-info-containerz">
+                                <img src={video.single_video?.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
+                                <div className='video-description-container'>
+                                    <div>{`${video.single_video?.user?.username}`}</div>
+                                    <div>{`${video.single_video?.description}`} </div>
                                 </div>
-
-                                <hr />
-
-                                {/* Comments on specific video */}
-                                {user ?
-                                    <div className= 'Comments-container'>
-                                        <EditCommentForm video_id= { video?.single_video?.id } />
+                                {user?.id === video.single_video?.poster_Id && (
+                                    <div className="btn-container">
+                                        <button className='edit-delete-btn' onClick={() => editHelperFunction()}>Edit</button>
+                                        {showEditForm && (<EditVideoForm content={video?.single_video?.description} video_id={video?.single_video?.id} />)}
+                                        <button className='edit-delete-btn' onClick={() => deleteHelperFunction()}>Delete</button>
                                     </div>
-                                    :
-                                    <div className= 'Comments-login-container'>
-                                        <h2 className= 'login--header--comments'>Login to see comments</h2>
-                                        <h4 className= 'login--header--comments'>Login to see comments and like the video.</h4>
-                                        <div  id='login-button'> <LoginFormModal/> </div>
-                                        <h4> Don't have an account? <SignUpFormModal/> </h4>
-                                    </div>
-                                }
+                                )}
                             </div>
-                        )}
-                    </div>
+                            <hr />
+
+
+                            {/* Comments on specific video */}
+                            {user ?
+                                <div className='Comments-container'>
+                                    <EditCommentForm video_id={video?.single_video?.id} />
+                                </div>
+                                :
+                                <div className='Comments-login-container'>
+                                    <h2 className='login--header--comments'>Login to see comments</h2>
+                                    <h4 className='login--header--comments' >Login to see comments and like the video.</h4>
+                                    <div id='login-button--comments'> <LoginFormModal /> </div>
+                                    <h4> Don't have an account? <SignUpFormModal /> </h4>
+                                </div>
+                            }
+                        </div>
+                    )}
                 </div>
             </Grid>
         </Grid>

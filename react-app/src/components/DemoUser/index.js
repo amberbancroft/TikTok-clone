@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 
 // Initializing DemoUser component
-const DemoUser = ({user}) => {
+const DemoUser = ( { user } ) => {
 	const [errors, setErrors] = useState([]);
 	const dispatch = useDispatch();
 	const history = useHistory()

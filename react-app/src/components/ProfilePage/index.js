@@ -7,7 +7,7 @@ import { getVideos } from '../../store/video'
 import { getUserInfo } from '../../store/profile'
 
 function User() {
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   const { username } = useParams();
   const videos = useSelector(state => state.videos)
   const userVideos = Object.values(videos).filter((video => username === video.user.username))
@@ -24,26 +24,11 @@ function User() {
     dispatch(getUserInfo(username))
   }, [dispatch, username])
 
-  // useEffect(() => {
-  //   if (!userId) {
-  //     return;
-  //   }
-  //   (async () => {
-  //     const response = await fetch(`/api/users/${userId}`);
-  //     const user = await response.json();
-  //     setUser(user);
-  //   })();
-  // }, [userId]);
-
-  // if (!user) {
-  //   return null;
-  // }
-
   return (
     <Grid container>
-      <Grid item md={2} />
-      <Grid item md={3} xs={2}>
-        <div className="sidebar-container">
+      <Grid item md= { 2 } />
+      <Grid item md= { 3 } xs= { 2 }>
+        <div className= 'sidebar-container'>
           <SideBar />
         </div>
       </Grid>
@@ -76,26 +61,3 @@ function User() {
 };
 
 export default User
-// { Object.values(videos)?.map( (video,i) => (
-//   <div key= { i }>
-//     { Object.values(videos).length > 0 ? 
-//     <>
-//       { user.id === video?.poster_Id && (
-//         <>
-//         <button onClick= { () => console.log(userVideos)}> No Posts </button>
-//         <div className= 'profile-info-profile'>
-//           <img src= { video.user?.profile_url } id= 'profile-icon' alt= "suggested_user_photo"></img>
-//           <div>{ video.user?.username } </div>
-//           <div>{ video.user?.bio } </div>
-//         </div>
-//           <div id= 'profile-video'>
-//             <a  href={`/videos/${video.id}`}>
-//                 <video  id= 'home-page-video' src= {video.video_url} alt= 'not-working' controls></video>
-//             </a>
-//           </div>
-//         </>
-//       )} 
-//       </>
-//     :<button onClick= { () => console.log(userVideos)}> No Posts </button>}
-//   </div>
-// ))}
