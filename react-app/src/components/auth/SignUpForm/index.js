@@ -146,7 +146,7 @@ const SignUpForm = ({ setShowModal }) => {
 
       <div className='modal--footer--container'>
         <h4 className='modal--footer--account'> Have an account? </h4>
-        <LoginFormModal onClick={() => setShowModal(false)} className='modal--other--link'> Login </LoginFormModal>
+        <LoginFormModal onClick={() => setShowModal(false)} className='modal--other--link'/>
       </div>
 
     </>
