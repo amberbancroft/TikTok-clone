@@ -84,11 +84,11 @@ function HomePage() {
 
                         <div className='profile-header-container'>
                             <div className='profile-info-containerz'>
-                                <Link to={`/users/${video.user?.id}`}>
+                                <Link to={`/users/${video.user?.username}`}>
                                     <img src={video.user?.profile_url} id='profile-icon' alt='user_profile_photo' />
                                 </Link>
                                 <div className='video-description-container'>
-                                    <Link to={`/users/${video.user?.id}`}> {`${video.user?.username}`} </Link>
+                                    <Link to={`/users/${video.user?.username}`}> {`${video.user?.username}`} </Link>
                                     <div> {`${video.description}`} </div>
                                 </div>
                             </div>
