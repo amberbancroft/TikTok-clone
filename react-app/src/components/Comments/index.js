@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { update_comment } from '../../store/comment';
 import { addComments, getComments, deleteComment } from '../../store/comment'
-import './EditCommentForm.css';
+import './CommentForm.css';
 
 
 const EditCommentForm = ( { video_id } ) => {
@@ -42,13 +42,10 @@ const EditCommentForm = ( { video_id } ) => {
         e.preventDefault();
         setValidationError([])
         let commentErrors = []
-        if (!newComment.length) {
-            commentErrors.push('Please provide a valid comment')
-        }
+
         if (!commentErrors.length) {
             await dispatch(addComments({ content: newComment, poster_Id: user?.id, video_Id: video_id }))
             setNewComment('')
-
         }
         else {
             setValidationError(commentErrors)
@@ -61,17 +58,33 @@ const EditCommentForm = ( { video_id } ) => {
         setFormId(comment.id)
     }
 
+    const Btn = () => {
+        if (newComment) {
+          return <button id= 'post-button' type= 'submit'> Post </button>
+        } else {
+          return <button id= 'disabled-post-btn' disabled> Post </button>
+        }
+      }
+
     return (
-        <div>
+        <>
+        <div className= 'Comments--container'>
             {Object.values(comments)?.map((comment, i) =>
                 <div key= { i } >
                     {video_id === comment?.video_Id && (
                         <div className= 'comment-edit'>
-                            <div className= 'comment-class'> { `${comment?.content}` } </div>
+                            <img src={comment?.profile_url} id='profile-icon' alt='user_photo'></img>
+                            <div className='content-container'>
+                                <div> { `${comment?.username}` } </div>
+                                <div> { `${comment?.content}` } </div>
+                            </div>
+
+
                             {user?.id === comment?.poster_Id && (
                                 <div className='btn-container'>
                                     <button className= 'edit-delete-btn' onClick= { () => openForm(comment) }> Edit </button>
                                     <button className= 'edit-delete-btn' onClick= { () => dispatch(deleteComment(comment?.id)) }> Delete </button>
+
                                     {showForm && comment.id === formId ?
                                         <form onSubmit= { (e) => handleSubmit(comment.id, content, e) }>
                                             <ul className=' form-errors'>
@@ -81,7 +94,7 @@ const EditCommentForm = ( { video_id } ) => {
                                             <input type= 'text' value= { content } onChange={ (e) => setContent(e.target.value) }></input>
                                             <button type= 'submit'> Update </button>
                                         </form>
-                                        : null}
+                                    : null}
                                 </div>
                             )}
                         </div>
@@ -89,24 +102,26 @@ const EditCommentForm = ( { video_id } ) => {
                 </div>
 
             )}
+            </div>
             <form id='posting-comments' onSubmit= { userComment }>
-                <ul className='form-errors'>
-                    {validationError.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
-                <div>
-                    <input
-                        className= 'comment'
-                        type= 'text'
-                        placeholder= 'Comment'
-                        value= { newComment }
-                        onChange={ (e) => setNewComment(e.target.value)}
-                    />
+                <div className= 'comment-and-errors'>
+                    <div className='comment-form-errors'>
+                        {validationError.map((error, idx) => <div key={idx} > {error} </div>)}
+                    </div>
+                    <div>
+                        <input
+                            className= 'comment'
+                            type= 'text'
+                            placeholder= 'Add Comment...'
+                            value= { newComment }
+                            onChange={ (e) => setNewComment(e.target.value)}
+                        />
+                    </div>
                 </div>
-                <div>
-                    <button id= 'post' type= 'submit'> Post </button>
-                </div>
+
+                <Btn/>
             </form>
-        </div>
+        </>
     );
 };
 

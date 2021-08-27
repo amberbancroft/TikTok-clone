@@ -23,6 +23,10 @@ h3, h4{
     color: rgb(104, 105,112);
 }
 
+hr {
+    margin: 0;
+}
+
 /* h1{
     font-family: none;
 } */

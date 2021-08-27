@@ -1,4 +1,5 @@
 from .db import db
+from .user import User
 import datetime
 
 class Comment(db.Model):
@@ -23,4 +24,6 @@ class Comment(db.Model):
             'video_Id': self.video_Id,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
+            'username': User.query.get(self.poster_Id).username,
+            'profile_url': User.query.get(self.poster_Id).profile_url,
         }

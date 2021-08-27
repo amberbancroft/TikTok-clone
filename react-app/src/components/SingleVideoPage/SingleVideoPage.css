@@ -27,6 +27,7 @@
 }
 .edit-delete-btn{
     padding-left: 10px;
+    cursor:pointer;
 }
 .btn-container{
     padding-left: 30%;
