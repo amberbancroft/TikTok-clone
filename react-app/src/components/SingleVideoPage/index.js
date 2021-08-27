@@ -7,7 +7,7 @@ import { useParams, useHistory } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import CancelIcon from '@material-ui/icons/Cancel';
 import EditVideoForm from "./Edit_form"
-import EditCommentForm from "./Edit_comment_form"
+import EditCommentForm from "../Comments/index"
 import LoginFormModal from '../auth/LoginForm/LoginFormModal'
 import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal'
 import './SingleVideoPage.css';

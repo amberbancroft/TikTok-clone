@@ -105,7 +105,7 @@ function HomePage() {
 
                         <hr />
                     </div>
-                ))}
+                )).reverse()}
             </Grid>
             <Grid item md={2} />
         </Grid>
