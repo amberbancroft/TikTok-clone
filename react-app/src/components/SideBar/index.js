@@ -21,7 +21,7 @@ function SideBar() {
     }, [dispatch])
 
     return (
-        <div>
+        <div style={{position: 'sticky', top: 30, left: 30}} >
             <div>
                 <a className= 'individual-container' id= 'foryou-container' href= { `/` }>
                     <img src= { ForYou } alt= 'ForYouLogo' />
