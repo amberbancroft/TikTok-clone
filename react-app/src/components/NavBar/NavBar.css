@@ -52,8 +52,12 @@ ul{
     padding-bottom: 0px;
 }
 
-#logout_icon{
-    height: 60px;
+#logout--button {
+    font-weight: bold;
+    font-size: medium;
+    color: rgb(255, 0, 80);
+    padding-top: 23px;
+    padding-left: 15px;
 }
 
 #login-button{

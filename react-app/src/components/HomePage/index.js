@@ -37,7 +37,7 @@ function HomePage() {
                 {user ?
                     <SideBar/>
                     :
-                    <div style={{position: 'sticky', top: 30, left: 30}}>
+                    <div style={{position: 'sticky', top: 0, left: 30}}>
                         <div>
                             <a className='individual-container' id='foryou-container' href={`/`}>
                                 <img src={ForYou} alt='ForYouLogo' />
