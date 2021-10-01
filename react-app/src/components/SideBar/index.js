@@ -15,6 +15,11 @@ function SideBar() {
     const users = useSelector(state => state.users);
     const dispatch = useDispatch();
 
+    // let hide;
+    // if (user.id > 7) {
+        // break;
+    // }
+
 
     useEffect(() => {
         dispatch(getUsers())
@@ -38,11 +43,13 @@ function SideBar() {
             <div>
                 {Object.values(users).map(user => (
                     <div key={user.id}>
+                       {/* {hide} */}
                         <div className='userProfiles-container'>
                             <img src={user.profile_url} id='profile-icon' alt='suggested_user_photo'></img>
                             <Link to={`/users/${user.username}`}>{user.username}</Link>
                         </div>
                     </div>
+
                 ))}
             </div>
             <hr/>
