@@ -6,7 +6,7 @@ class Comment(db.Model):
     __tablename__ = 'comments'
 
     id = db.Column(db.Integer, nullable=False, primary_key=True)
-    content = db.Column(db.String(40), nullable=True)
+    content = db.Column(db.String(60), nullable=True)
     poster_Id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     video_Id = db.Column(db.Integer, db.ForeignKey('videos.id', ondelete='CASCADE'), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
