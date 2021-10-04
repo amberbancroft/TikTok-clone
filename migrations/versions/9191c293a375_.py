@@ -1,8 +1,8 @@
-"""creating tables
+"""empty message
 
-Revision ID: dd2f9d72b3ca
+Revision ID: 9191c293a375
 Revises: 
-Create Date: 2021-08-07 18:22:51.721881
+Create Date: 2021-10-04 14:29:12.521553
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'dd2f9d72b3ca'
+revision = '9191c293a375'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,7 +32,7 @@ def upgrade():
     op.create_table('videos',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('poster_Id', sa.Integer(), nullable=False),
-    sa.Column('description', sa.String(length=40), nullable=True),
+    sa.Column('description', sa.String(length=60), nullable=True),
     sa.Column('video_url', sa.String(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
@@ -41,7 +41,7 @@ def upgrade():
     )
     op.create_table('comments',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('content', sa.String(length=40), nullable=True),
+    sa.Column('content', sa.String(length=60), nullable=True),
     sa.Column('poster_Id', sa.Integer(), nullable=False),
     sa.Column('video_Id', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),

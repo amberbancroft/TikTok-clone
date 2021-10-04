@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ForYou from './foryou.png';
 import { getUsers } from '../../store/user';
 import { Link } from 'react-router-dom';
-import React from "react";
+import React from 'react';
 import './SideBar.css';
 
 function SideBar() {
@@ -15,16 +15,21 @@ function SideBar() {
     const users = useSelector(state => state.users);
     const dispatch = useDispatch();
 
+    // let hide;
+    // if (user.id > 7) {
+        // break;
+    // }
+
 
     useEffect(() => {
         dispatch(getUsers())
     }, [dispatch])
 
     return (
-        <div>
+        <div style={{position: 'sticky', top: 30, left: 30}} >
             <div>
-                <a className= "individual-container" id= "foryou-container" href= { `/` }>
-                    <img src= { ForYou } alt= "ForYouLogo" />
+                <a className= 'individual-container' id= 'foryou-container' href= { `/` }>
+                    <img src= { ForYou } alt= 'ForYouLogo' />
                 </a>
             </div>
             <hr/>
@@ -38,15 +43,17 @@ function SideBar() {
             <div>
                 {Object.values(users).map(user => (
                     <div key={user.id}>
-                        <div className="userProfiles-container">
-                            <img src={user.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
+                       {/* {hide} */}
+                        <div className='userProfiles-container'>
+                            <img src={user.profile_url} id='profile-icon' alt='suggested_user_photo'></img>
                             <Link to={`/users/${user.username}`}>{user.username}</Link>
                         </div>
                     </div>
+
                 ))}
             </div>
             <hr/>
-            <div className= "individual-container" id= "about-container">
+            <div className= 'individual-container' id= 'about-container'>
                 <h4> Created by: Amber Bancroft </h4>
                 <a className= 'link--icon' href= { `https://www.linkedin.com/in/amber-bancroft/` }>
                     <LinkedInIcon/>
@@ -60,4 +67,4 @@ function SideBar() {
     )
 };
 
-export default SideBar
+export default SideBar;

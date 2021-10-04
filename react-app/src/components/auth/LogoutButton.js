@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../store/session';
-import logout_icon from '../NavBar/images/logout.png';
 
 const LogoutButton = () => {
   const dispatch = useDispatch()
@@ -10,9 +9,7 @@ const LogoutButton = () => {
   };
 
   return (
-    <button onClick= { onLogout }>
-      <img src= { logout_icon } id='logout_icon' alt= 'Logout_icon'></img>
-    </button>
+    <button id='logout--button' onClick= { onLogout }> Logout </button>
   )
 };
 

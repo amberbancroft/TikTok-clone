@@ -30,6 +30,7 @@ ul{
 .navbar-icon{
     padding-top: 5px;
     height:52px;  
+    cursor:pointer;
 }
 .navbar-button{
     display: flex;
@@ -50,10 +51,16 @@ ul{
     width: 30px;
     border-radius:50%;
     padding-bottom: 0px;
+    cursor:pointer;
 }
 
-#logout_icon{
-    height: 60px;
+#logout--button {
+    font-weight: bold;
+    font-size: medium;
+    color: rgb(255, 0, 80);
+    padding-top: 23px;
+    padding-left: 15px;
+    cursor:pointer;
 }
 
 #login-button{

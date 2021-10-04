@@ -42,6 +42,7 @@
     height: 40px;
     width: 98%;
     margin-top: 7px;
+    margin-bottom: 15px;
     cursor:pointer;
 }
 
@@ -72,7 +73,6 @@
     padding-top: 17px;
     padding-left: 5px;
 }
-
 
 /* Credit too: https://codesandbox.io/s/z24wl3n58m */
 .flex-section {

@@ -35,9 +35,9 @@ function HomePage() {
             <Grid item md={2} />
             <Grid item md={3} xs={2} className='flex-section'>
                 {user ?
-                    <SideBar />
+                    <SideBar/>
                     :
-                    <>
+                    <div style={{position: 'sticky', top: 0, left: 30}}>
                         <div>
                             <a className='individual-container' id='foryou-container' href={`/`}>
                                 <img src={ForYou} alt='ForYouLogo' />
@@ -73,7 +73,7 @@ function HomePage() {
                             </a>
                         </div>
                         <hr className='sidebar--hr'/>
-                    </>
+                    </div>
                 }
             </Grid>
             <Grid item md={5} xs={10}>

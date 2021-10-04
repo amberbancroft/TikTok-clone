@@ -5,17 +5,34 @@ from app.models import db, User
 def seed_users():
     demo = User(
         username='GordanRamsay', profile_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/CroppedFocusedImage121578650-50-GR-with-Wellington.jpeg',
-         email='demo@aa.io', password='password')
-    chloe = User(
-        username='chloe', profile_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/Mental-Strong-Women-min.jpeg',
-         email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', profile_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/what_makes_a_man_more_manly_main0.jpeg', 
-        email='bobbie@aa.io', password='password')
+        email='demo@aa.io', password='password')
+    willsmith = User(
+        username='willsmith', profile_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/will_smith.jpeg',
+        email='demo1@aa.io', password='password1')
+    kevinhart = User(
+        username='iamkevinhart', profile_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/Kevin-Hart.jpeg',
+        email='demo2@aa.io', password='password2')
+    selenagomez = User(
+        username='selenagomez', profile_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/selena-gomez.jpeg',
+        email='demo3@aa.io', password='password3')
+    billnye = User(
+        username='billnye', profile_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/bill-nye.jpeg',
+        email='demo4@aa.io', password='password4')
+    mileycyrus = User(
+        username='mileycyrus', profile_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/miley-cyrus.jpeg',
+        email='demo5@aa.io', password='password5')
+    jenniferlawrence = User(
+        username='jenniferlawrence', profile_url='https://tiktok-clone.s3.us-west-1.amazonaws.com/jennifer.jpeg',
+        email='demo6@aa.io', password='password6')
+
 
     db.session.add(demo)
-    db.session.add(chloe)
-    db.session.add(bobbie)
+    db.session.add(willsmith)
+    db.session.add(kevinhart)
+    db.session.add(selenagomez)
+    db.session.add(billnye)
+    db.session.add(mileycyrus)
+    db.session.add(jenniferlawrence)
 
     db.session.commit()
 

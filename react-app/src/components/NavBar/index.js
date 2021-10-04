@@ -33,7 +33,7 @@ const NavBar = ( { loaded } ) => {
 					</NavLink>
 				</div> */}
 				<NavLink to= { `/` } exact= { true }>
-					<LogoutButton className= 'navbar-button'/>
+					<LogoutButton className= 'navbar-button' />
 				</NavLink>
 				<div >
 					<NavLink  to= { `/users/${ user.username }` } exact= { true } >

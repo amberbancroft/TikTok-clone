@@ -36,7 +36,6 @@
 /* Comments */
 .Comments-container{
     background-color:rgb(214, 222, 222);
-
 }
 
 /* Comments login container */
@@ -67,5 +66,6 @@
 }
 
 #official--login--button{
-    color:white;
+    color:black;
+    cursor: 'pointer';
 }
