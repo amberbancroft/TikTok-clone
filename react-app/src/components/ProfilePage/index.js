@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import SideBar from '../SideBar/index';
-import { getVideos } from '../../store/video'
-import { getUserInfo } from '../../store/profile'
+import { getVideos } from '../../store/video';
+import { getUserInfo } from '../../store/profile';
 
 function User() {
   // const [user, setUser] = useState({});
@@ -28,7 +28,7 @@ function User() {
     <Grid container>
       <Grid item md= { 2 } />
       <Grid item md= { 3 } xs= { 2 }>
-        <div className= 'sidebar-container'>
+        <div className='sidebar-container' style={{position: 'sticky', top: 0, left: 30}}>
           <SideBar />
         </div>
       </Grid>
@@ -39,15 +39,21 @@ function User() {
           <>
             {userVideos.map((video, ind) => (
               <>
-                <div className='profile-info-profile'>
-                  <img src={video.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
-                  <div>{video.user?.username} </div>
-                  <div>{video.user?.bio} </div>
-
+              <div className='profile-header-container'>
+                <div className='profile-info-containerz'>
+                  <img src={video.user?.profile_url} id='profile-icon' alt='suggested_user_photo'/>
+                  <div className='video-description-container'>
+                    <div> {`${video.user?.username}`} </div>
+                    <div> {`${video.description}`} </div>
+                  </div>
                 </div>
-                <a href={`/videos/${video.id}`}>
-                  <video id='home-page-video' src={video.video_url} alt='not-working' controls></video>
-                </a>
+              </div>
+
+                <div id='home-video'>
+                  <a href={`/videos/${video.id}`}>
+                    <video id='home-page-video' src={video.video_url} alt='not-working' controls></video>
+                  </a>
+                </div>
               </>
             ))}
           </>
@@ -61,3 +67,4 @@ function User() {
 };
 
 export default User
+
