@@ -37,8 +37,8 @@ TikTok (a [TikTok](https://www.tiktok.com/) clone) is a full stack application d
     * Sign Up/ Login
         
         Users have the ability to sign up for an account or login by inputting the requested credentials.
-        
-        <!-- ![Sign Up/Login](https://user-images.githubusercontent.com/77598204/135176306-0cdfcc62-a601-45ae-8e85-4213af5f927d.gif) -->
+
+        ![Sign Up/Login](https://user-images.githubusercontent.com/77598204/136075389-ca456d64-62f6-410b-8b01-b210dd6b1f79.gif)
 
     * Demo User
 
@@ -48,8 +48,8 @@ TikTok (a [TikTok](https://www.tiktok.com/) clone) is a full stack application d
     * Uploading Videos
         
         Authenticated users can upload their own videos, allowing other users to browse their work. To post a video, you will be prompted to input a caption and an image file.
-        
-        <!-- ![UploadingPhoto](https://user-images.githubusercontent.com/77598204/135177742-1c2e841e-25fe-4ca6-81c5-458beb0211c9.gif) -->
+
+        ![video_upload](https://user-images.githubusercontent.com/77598204/136076166-9d34e7f1-b9be-4429-ac2d-23a037bed57d.gif)
 
     * Editing Videos
     
@@ -80,13 +80,10 @@ TikTok (a [TikTok](https://www.tiktok.com/) clone) is a full stack application d
 ![Database](https://user-images.githubusercontent.com/77598204/135540257-dffa8832-dce8-4d89-b522-45c699cf9bb5.png)
 
 ### Frontend Overview
-The TikTok frontend was built entirely with vanilla JavaScript, CSS, and Material-UI. 
-
-<!-- We used a combination of form inputs and the Fetch API to provide a fully functional CRUD experience to our users. By utilizing Ajax we are also able to provide a seamlessly integrated experience to our users when they make comments, like stories, or follow other users. -->
-
+The TikTok frontend was built entirely with vanilla JavaScript, CSS, and Material-UI. I was able to utilize React in order to deliver a full CRUD experience as well as improve upon the user interface. 
 
 ### Backend Overview
 The Python backend is a collection of frontend routes and RESTful API routes that serve data to the frontend through React/Redux. The application data is stored in a SQLAlchemy database. AWS was used to improve video and image quality as well as help render components faster on the page to improve user experience.
 
 ## Conclusion
-<!-- I intended to create a clone of Flickr which is a site where you can post photos and engage in the community like many other social media platforms. I strived for a clean minimal look with high functionality. I learned a lot on the process and look forward to improving our design in the future. -->
+I intended to create a clone of TikTok which is a site where you can post videos and engage in the community like many other social media platforms. I strived for a clean minimal look with high functionality. I learned a lot in the process and look forward to improving our design in the future.
