@@ -1,5 +1,6 @@
 # TikTok
-<!-- <img width="1440" alt="splashpage" src="https://user-images.githubusercontent.com/77598204/135312951-8b422903-fcb9-41fa-99f9-f20d5a3a61e6.png"> -->
+
+<img width='1440' alt='home screen' src='https://user-images.githubusercontent.com/77598204/136069694-bbf6a7ed-7c4b-4452-abad-0076f019828a.png'>
 
 *By [Amber Bancroft](https://github.com/AmberBancroft).
 [Live site](https://tiktokcapstoneproject.herokuapp.com/)
@@ -31,62 +32,58 @@ TikTok (a [TikTok](https://www.tiktok.com/) clone) is a full stack application d
   - Heroku deployment
   - AWS
 
-
-<!-- **Key Features**
-- Browse through all videos available
-- Post, edit, and delete your own videos
-- View all comments on videos
-- post, edit, and delete your own comments -->
-
-
 ## MVP Feature List
 * User Authentication
     * Sign Up/ Login
         
-        <!-- Users have the ability to sign up for an account by inputting the requested credentials. -->
-        
-        <!-- ![Sign Up/Login](https://user-images.githubusercontent.com/77598204/135176306-0cdfcc62-a601-45ae-8e85-4213af5f927d.gif) -->
+        Users have the ability to sign up for an account or login by inputting the requested credentials.
+
+        ![Sign Up/Login](https://user-images.githubusercontent.com/77598204/136075389-ca456d64-62f6-410b-8b01-b210dd6b1f79.gif)
+
     * Demo User
+
+        Upon arriving on the home page, users have the option to click the "Demo" button to be instantly logged in as the default demo user. This demo account allows them to navigate the application and all of it's authenticated features without formally creating their own account.
         
-        <!-- Upon arriving on the splashpage, users have the option to click the "Demo" button to be instantly logged in as the default demo user. This demo account allows them to navigate the application and all of it's authenticated features without formally creating their own account. -->
-        
-        <!-- ![Demo User](https://user-images.githubusercontent.com/77598204/135175508-ddb1c3a5-d8a9-4889-9921-3616506b6d44.gif) -->
 * Videos
     * Uploading Videos
         
-        <!-- Authenticated users can upload their own photos, allowing other users to browse their work. To post a story, you will be prompted to input a title and an image file. -->
-        
-        <!-- ![UploadingPhoto](https://user-images.githubusercontent.com/77598204/135177742-1c2e841e-25fe-4ca6-81c5-458beb0211c9.gif) -->
+        Authenticated users can upload their own videos, allowing other users to browse their work. To post a video, you will be prompted to input a caption and an image file.
+
+        ![video_upload](https://user-images.githubusercontent.com/77598204/136076166-9d34e7f1-b9be-4429-ac2d-23a037bed57d.gif)
+
     * Editing Videos
     
-      <!-- Authenticated users can edit the photos they have posted by clicking the edit button. They will then be allowed to edit the title of the desired photo. -->
+      Authenticated users can edit the videos they have posted by clicking the edit button. They will then be allowed to edit the caption of the desired video.
       
-
     * Deleting Videos
 
-      <!-- Authenticated users can delete the photos that they've posted by clicking the delete button. They will then be allowed to delete the desired photo. -->
+      Authenticated users can delete the videos that they've posted by clicking the delete button.
+
+* Comments
+    * Posting Comments
+        
+        Authenticated users can view all comments and post comments on other users videos as well as their own.
+        
+        ![Posting Comments](https://user-images.githubusercontent.com/77598204/136076885-0b7bc8bc-01fd-4646-917b-b61387a3fd0a.gif)
+
+    * Editing Comments
+    
+      Authenticated users can edit the comments they have posted by clicking the edit button. They will then be allowed to edit the content of the desired comment.
       
-        <!-- ![DeletePhoto](https://user-images.githubusercontent.com/77598204/135180252-9232328c-4a8a-47e1-b9d8-042f16c5e6e6.gif) -->
+    * Deleting Comments
 
-<!-- * Comments
-  * Posting Comments
-  * Editing Comments
-  * Deleting Comments -->
-
-
+      Authenticated users can delete the comments that they've posted by clicking the delete button. They will then be allowed to delete the desired comment.
+      
 ## Application Architecture
 
 ### Database Schema
 ![Database](https://user-images.githubusercontent.com/77598204/135540257-dffa8832-dce8-4d89-b522-45c699cf9bb5.png)
 
 ### Frontend Overview
-The TikTok frontend was built entirely with vanilla JavaScript, CSS, and Material-UI. 
-
-<!-- We used a combination of form inputs and the Fetch API to provide a fully functional CRUD experience to our users. By utilizing Ajax we are also able to provide a seamlessly integrated experience to our users when they make comments, like stories, or follow other users. -->
-
+The TikTok frontend was built entirely with vanilla JavaScript, CSS, and Material-UI. I was able to utilize React in order to deliver a full CRUD experience as well as improve upon the user interface. 
 
 ### Backend Overview
 The Python backend is a collection of frontend routes and RESTful API routes that serve data to the frontend through React/Redux. The application data is stored in a SQLAlchemy database. AWS was used to improve video and image quality as well as help render components faster on the page to improve user experience.
 
 ## Conclusion
-<!-- I intended to create a clone of Flickr which is a site where you can post photos and engage in the community like many other social media platforms. I strived for a clean minimal look with high functionality. I learned a lot on the process and look forward to improving our design in the future. -->
+I intended to create a clone of TikTok which is a site where you can post videos and engage in the community like many other social media platforms. I strived for a clean minimal look with high functionality. I learned a lot in the process and look forward to improving our design in the future.
