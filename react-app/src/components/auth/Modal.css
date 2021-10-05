@@ -40,6 +40,16 @@
     background-color:rgb(231, 231, 232);
 }
 
+#video--upload--input--container{
+    display: flex;
+    justify-content: center;
+}
+
+#video--upload--input{
+    padding-top: 30px;
+
+}
+
 /* Buttons */
 .modal--button--container {
     display: flex;
@@ -98,8 +108,3 @@ button[disabled]{
 .modal--footer--divider{
     width: 99%;
 }
-
-/* .modal--other--link{
-    color:rgb(255, 0, 80);
-    cursor:pointer;
-} */

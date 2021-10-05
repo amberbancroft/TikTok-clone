@@ -90,7 +90,7 @@ const SignUpForm = ({ setShowModal }) => {
         <CancelIcon onClick={() => setShowModal(false)} className='modal--cancel--icon'></CancelIcon>
 
         <h2 className='modal--header'> Sign up </h2>
-        {/* <button onClick={() => console.log(users)}>pop </button> */}
+
         <div>
           <input
             className='modal--input'
