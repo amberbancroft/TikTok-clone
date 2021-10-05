@@ -64,7 +64,7 @@ TikTok (a [TikTok](https://www.tiktok.com/) clone) is a full stack application d
         
         Authenticated users can view all comments and post comments on other users videos as well as their own.
         
-        <!-- ![UploadingPhoto](https://user-images.githubusercontent.com/77598204/135177742-1c2e841e-25fe-4ca6-81c5-458beb0211c9.gif) -->
+        ![Posting Comments](https://user-images.githubusercontent.com/77598204/136076885-0b7bc8bc-01fd-4646-917b-b61387a3fd0a.gif)
 
     * Editing Comments
     
