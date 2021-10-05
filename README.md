@@ -2,8 +2,8 @@
 
 <img width='1440' alt='home screen' src='https://user-images.githubusercontent.com/77598204/136069694-bbf6a7ed-7c4b-4452-abad-0076f019828a.png'>
 
-*By [Amber Bancroft](https://github.com/AmberBancroft).
-[Live site](https://tiktokcapstoneproject.herokuapp.com/)
+*By [Amber Bancroft](https://github.com/AmberBancroft)- 
+[Live site here](https://tiktokcapstoneproject.herokuapp.com/)
 
 **Table of Contents**
 * [Welcome to TikTok](#TikTok-at-a-glance)
