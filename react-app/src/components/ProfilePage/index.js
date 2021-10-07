@@ -58,7 +58,7 @@ function User() {
             ))}
           </>
 
-          : <h1>No Posts Yet :(</h1>}
+          : <h1 style={{paddingLeft: 100, paddingTop: 20}}>No Posts Yet :(</h1>}
       </Grid>
 
       <Grid item md={2} />
