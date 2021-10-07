@@ -10,6 +10,7 @@ import EditVideoForm from "./Edit_form"
 import EditCommentForm from "../Comments/index"
 import LoginFormModal from '../auth/LoginForm/LoginFormModal'
 import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal'
+import { Link } from 'react-router-dom';
 import './SingleVideoPage.css';
 
 
@@ -62,8 +63,11 @@ function SingleVideoPage() {
                 <div className="Edit-bar-container">
                     {Object.values(videos)?.map((video, i) =>
                         <div key={i} >
+                            <button onClick={ () => console.log(video)}> Poop </button>
                             <div className="profile-info-containerz">
-                                <img src={video.single_video?.user?.profile_url} id='profile-icon' alt="suggested_user_photo"></img>
+                                <Link to={`/users/${video?.user?.username}`}>
+                                    <img src={video.single_video?.user?.profile_url} id='profile-icon' alt="suggested_user_photo"/>
+                                </Link>
                                 <div className='video-description-container'>
                                     <div>{`${video.single_video?.user?.username}`}</div>
                                     <div>{`${video.single_video?.description}`} </div>
