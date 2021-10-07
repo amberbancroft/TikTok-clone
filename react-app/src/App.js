@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import NavBar from './components/NavBar/index';
 import HomePage from './components/HomePage/index';
-import ProtectedRoute from './components/auth/ProtectedRoute';
+// import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/ProfilePage/index';
 import SingleVideoPage from './components/SingleVideoPage/index'
 import { authenticate } from './store/session';
