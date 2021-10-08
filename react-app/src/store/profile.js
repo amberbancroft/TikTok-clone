@@ -8,6 +8,7 @@ const userInfo = user => ({
 export const getUserInfo = (username) => async (dispatch) => {
     const response = await fetch(`/api/users/${username}`)
     const user = await response.json()
+    // console.log(user)
     dispatch(userInfo(user))
 }
 

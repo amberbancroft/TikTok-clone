@@ -1,16 +1,16 @@
 // Imports
-import { getVideo, deleteVideo } from '../../store/video'
-import { getComments } from '../../store/comment'
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { getVideo, deleteVideo } from '../../store/video';
+import { getComments } from '../../store/comment';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import CancelIcon from '@material-ui/icons/Cancel';
-import EditVideoForm from "./Edit_form"
-import EditCommentForm from "../Comments/index"
-import LoginFormModal from '../auth/LoginForm/LoginFormModal'
-import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal'
-import { Link } from 'react-router-dom';
+import EditVideoForm from './Edit_form';
+import EditCommentForm from '../Comments/index';
+import LoginFormModal from '../auth/LoginForm/LoginFormModal';
+import SignUpFormModal from '../auth/SignUpForm/SignUpFormModal';
+// import { Link } from 'react-router-dom';
 import './SingleVideoPage.css';
 
 
@@ -48,11 +48,11 @@ function SingleVideoPage() {
             <Grid item md={8} xs={10}>
                 <div className='Video-container'>
                     <a href={'/'}>
-                        <CancelIcon id='cancel-icon' ></CancelIcon>
+                        <CancelIcon id='cancel-icon'/>
                     </a>
                     {Object.values(videos)?.map((video, i) =>
                         <div id='single-video' key={i} >
-                            <video src={video.single_video?.video_url} alt='not-working' controls></video>
+                            <video src={video.single_video?.video_url} alt='not-working' controls/>
                         </div>
                     )}
                 </div>
@@ -60,22 +60,23 @@ function SingleVideoPage() {
 
             {/* Video poster information */}
             <Grid item md={4} xs={2}>
-                <div className="Edit-bar-container">
+                <div className='Edit-bar-container'>
                     {Object.values(videos)?.map((video, i) =>
-                        <div key={i} >
-                            <button onClick={ () => console.log(video)}> Poop </button>
-                            <div className="profile-info-containerz">
-                                <Link to={`/users/${video?.user?.username}`}>
-                                    <img src={video.single_video?.user?.profile_url} id='profile-icon' alt="suggested_user_photo"/>
-                                </Link>
+                        <div key={i} >     
+                            <div className='profile-info-containerz'>
+                                <div onClick={e => { history.push(`/users/${video.single_video?.user?.username}`); window.location.reload(true);}}>
+                                    <img src={video.single_video?.user?.profile_url} id='profile-icon' alt='suggested_user_photo'/>
+                                </div>
                                 <div className='video-description-container'>
-                                    <div>{`${video.single_video?.user?.username}`}</div>
+                                    <div onClick={e => { history.push(`/users/${video.single_video?.user?.username}`); window.location.reload(true);}}>
+                                        <div style={{cursor:'pointer'}}>{`${video.single_video?.user?.username}`}</div>
+                                    </div>
                                     <div>{`${video.single_video?.description}`} </div>
                                 </div>
                                 {user?.id === video.single_video?.poster_Id && (
-                                    <div className="btn-container">
-                                        <button className='edit-delete-btn' onClick={() => editHelperFunction()}>Edit</button>
+                                    <div className='btn-container'>
                                         {showEditForm && (<EditVideoForm content={video?.single_video?.description} video_id={video?.single_video?.id} />)}
+                                        <button className='edit-delete-btn' onClick={() => editHelperFunction()}>Edit</button>
                                         <button className='edit-delete-btn' onClick={() => deleteHelperFunction()}>Delete</button>
                                     </div>
                                 )}

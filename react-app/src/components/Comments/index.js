@@ -91,7 +91,7 @@ const EditCommentForm = ( { video_id } ) => {
                                                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                                             </ul>
                                             <hr />
-                                            <input type= 'text' value= { content } onChange={ (e) => setContent(e.target.value) }></input>
+                                            <input type= 'text' value= { content } onChange={ (e) => setContent(e.target.value) }/>
                                             <button type= 'submit'> Update </button>
                                         </form>
                                     : null}

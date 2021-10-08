@@ -51,7 +51,6 @@
     display: flex;
     justify-content: center;
     margin: 10px;
-    /* header:20px; */
 }
 #login-button--comments{
     border: rgb(255, 0, 80) 1px solid;
