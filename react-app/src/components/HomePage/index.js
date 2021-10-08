@@ -40,7 +40,7 @@ function HomePage() {
                     <div style={{position: 'sticky', top: 0, left: 30}}>
                         <div>
                             <a className='individual-container' id='foryou-container' href={`/`}>
-                                <img src={ForYou} alt='ForYouLogo' />
+                                <img src={ForYou} alt='ForYouLogo'/>
                             </a>
                             <hr className='sidebar--hr'/>
                         </div>
@@ -101,7 +101,7 @@ function HomePage() {
 
                         <div id='home-video'>
                             <a href={`/videos/${video.id}`} >
-                                <video id='home-page-video' src={video.video_url} alt='home-page-video' controls></video>
+                                <video id='home-page-video' src={video.video_url} alt='home-page-video' controls/>
                             </a>
                         </div>
 

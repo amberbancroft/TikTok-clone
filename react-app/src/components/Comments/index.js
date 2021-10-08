@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { update_comment } from '../../store/comment';
-import { addComments, getComments, deleteComment } from '../../store/comment'
+import { useHistory } from 'react-router-dom';
+import { addComments, getComments, deleteComment } from '../../store/comment';
 import './CommentForm.css';
 
 
 const EditCommentForm = ( { video_id } ) => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const user = useSelector(state => state.session.user)
     const [errors, setErrors] = useState([]);
     const [validationError, setValidationError] = useState([])
@@ -73,9 +75,14 @@ const EditCommentForm = ( { video_id } ) => {
                 <div key= { i } >
                     {video_id === comment?.video_Id && (
                         <div className= 'comment-edit'>
-                            <img src={comment?.profile_url} id='profile-icon' alt='user_photo'></img>
+                            
+                            <div onClick={e => { history.push(`/users/${comment?.username}`); window.location.reload(true);}}>
+                                <img src={comment?.profile_url} id='profile-icon' alt='user_photo'/>
+                            </div>
                             <div className='content-container'>
-                                <div> { `${comment?.username}` } </div>
+                                <div onClick={e => { history.push(`/users/${comment?.username}`); window.location.reload(true);}}>
+                                    <div style={{cursor:'pointer'}}> { `${comment?.username}` } </div>
+                                </div>
                                 <div> { `${comment?.content}` } </div>
                             </div>
 
