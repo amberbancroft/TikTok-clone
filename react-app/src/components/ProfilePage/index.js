@@ -38,7 +38,7 @@ function User() {
         {userVideos.length > 0 ?
           <>
             {userVideos.map((video, ind) => (
-              <>
+              <div key={ind} >
               <div className='profile-header-container'>
                 <div className='profile-info-containerz'>
                   <img src={video.user?.profile_url} id='profile-icon' alt='suggested_user_photo'/>
@@ -54,11 +54,11 @@ function User() {
                     <video id='home-page-video' src={video.video_url} alt='not-working' controls></video>
                   </a>
                 </div>
-              </>
+              </div>
             ))}
           </>
 
-          : <h1>No Posts Yet :(</h1>}
+          : <h1 style={{paddingLeft: 100, paddingTop: 20}}>No Posts Yet :(</h1>}
       </Grid>
 
       <Grid item md={2} />
