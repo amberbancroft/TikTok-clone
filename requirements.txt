@@ -5,7 +5,7 @@
 #    pipenv lock --requirements
 #
 
-# Dependencies to run this application on your computer
+# Dependencies to run this application on your computer & automatically dowloaded with NPM I
 -i https://pypi.org/simple
 alembic==1.6.5
 boto3==1.18.9

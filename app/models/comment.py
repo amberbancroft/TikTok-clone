@@ -2,9 +2,11 @@ from .db import db
 from .user import User
 import datetime
 
+# Specificying that this class is actually a model
 class Comment(db.Model):
-    __tablename__ = 'comments'
+    __tablename__ = 'comments' #Creating tablename
 
+    # Creating table columns with requirements
     id = db.Column(db.Integer, nullable=False, primary_key=True)
     content = db.Column(db.String(60), nullable=True)
     poster_Id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -16,6 +18,7 @@ class Comment(db.Model):
     user = db.relationship('User', back_populates='comments', lazy='subquery')
     video = db.relationship('Video', back_populates='comments', lazy='subquery')
 
+    # Returning JSON object
     def to_dict(self):
         return {
             'id': self.id,
