@@ -24,5 +24,6 @@ class Video(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at,
 
+            # Adding user object to the video JSON object
             'user': self.user.to_dict(),
         }
